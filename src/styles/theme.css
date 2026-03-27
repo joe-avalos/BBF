@@ -1,0 +1,88 @@
+/* ═══════════════════════════════════════════════
+   DESIGN SYSTEM — "Desert Editorial"
+   All colors and design tokens in one file.
+   Components must ONLY use custom properties.
+   ═══════════════════════════════════════════════ */
+
+:root {
+  /* Brand */
+  --red: #d71f2b;
+  --red-dark: #b8101b;
+  --red-light: #f4444f;
+
+  /* Warm neutrals */
+  --sand: #f5f0eb;
+  --sand-dark: #ece5dd;
+  --cream: #faf8f5;
+  --warm-white: #fefdfb;
+  --charcoal: #231f20;
+  --charcoal-light: #3a3435;
+  --warm-gray: #6b6563;
+  --warm-gray-light: #9a9392;
+  --border: #e2ddd7;
+
+  /* Accent */
+  --gold: #c4954a;
+  --gold-light: #dbb47a;
+
+  /* Functional aliases */
+  --bg: var(--warm-white);
+  --bg-alt: var(--sand);
+  --bg-card: #ffffff;
+  --text: var(--charcoal);
+  --text-muted: var(--warm-gray);
+  --text-light: var(--warm-gray-light);
+  --nav-bg: rgba(254, 253, 251, 0.92);
+  --nav-border: rgba(226, 221, 215, 0.6);
+  --footer-bg: var(--charcoal);
+  --footer-text: var(--sand);
+
+  /* Logo mark color (used by SVG logo) */
+  --logo-mark: #d71f2b;
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Outfit', -apple-system, sans-serif;
+
+  /* Spacing scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+  --space-3xl: 8rem;
+
+  /* Border radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* Animation easings */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ─── Dark Theme ─── */
+[data-theme="dark"] {
+  --bg: #1a1715;
+  --bg-alt: #221f1c;
+  --bg-card: #2a2623;
+  --text: #f0ece7;
+  --text-muted: #a09893;
+  --text-light: #706863;
+  --nav-bg: rgba(26, 23, 21, 0.95);
+  --nav-border: rgba(60, 54, 48, 0.6);
+  --border: #3c3630;
+  --sand: #2a2623;
+  --sand-dark: #221f1c;
+  --cream: #1e1b18;
+  --warm-white: #1a1715;
+  --footer-bg: #0f0d0c;
+  --footer-text: #a09893;
+  --red: #e8434e;
+  --red-dark: #d71f2b;
+  --gold: #dbb47a;
+  --logo-mark: #e8434e;
+}
