@@ -1,0 +1,389 @@
+---
+import { getLang, t, getLocalePath } from '@/i18n/utils';
+
+const lang = getLang(Astro.url);
+const altLang = lang === 'en' ? 'es' : 'en';
+const pathname = Astro.url.pathname;
+
+const navLinks = [
+  { key: 'nav.home' as const, href: `/${lang}/` },
+  { key: 'nav.ourStory' as const, href: `/${lang}/our-story/` },
+  { key: 'nav.howWeHelp' as const, href: `/${lang}/how-we-help/` },
+  { key: 'nav.scholars' as const, href: `/${lang}/scholars/` },
+];
+
+function isActive(href: string): boolean {
+  if (href === `/${lang}/`) {
+    return pathname === `/${lang}/` || pathname === `/${lang}`;
+  }
+  return pathname.startsWith(href);
+}
+---
+
+<header class="nav" role="banner">
+  <div class="nav__inner">
+    <a href={`/${lang}/`} class="nav__logo" aria-label="Building Baja's Future — Home">
+      <img src="/logo.svg" alt="Building Baja's Future" width="131" height="50" />
+    </a>
+
+    <nav aria-label="Main navigation">
+      <ul class="nav__links">
+        {navLinks.map(({ key, href }) => (
+          <li>
+            <a
+              href={href}
+              class:list={['nav__link', { 'nav__link--active': isActive(href) }]}
+              aria-current={isActive(href) ? 'page' : undefined}
+            >
+              {t(lang, key)}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="nav__actions">
+      <button
+        class="nav__lang"
+        id="langToggle"
+        type="button"
+        aria-label={t(lang, 'lang.label')}
+      >
+        {t(lang, 'lang.switch')}
+      </button>
+      <button
+        class="nav__theme"
+        id="themeToggle"
+        type="button"
+        aria-label={t(lang, 'theme.toggle')}
+      >
+        <!-- Icon set by theme-toggle.ts -->
+      </button>
+      <a href={`/${lang}/how-to-donate/`} class="btn btn--donate-sm">
+        {t(lang, 'nav.donate')}
+      </a>
+    </div>
+
+    <button
+      class="nav__hamburger"
+      id="menuToggle"
+      type="button"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      aria-controls="mobileMenu"
+    >
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="nav__mobile" id="mobileMenu" hidden>
+    <nav aria-label="Mobile navigation">
+      <ul class="nav__mobile-links">
+        {navLinks.map(({ key, href }) => (
+          <li>
+            <a
+              href={href}
+              class:list={['nav__mobile-link', { 'nav__link--active': isActive(href) }]}
+              aria-current={isActive(href) ? 'page' : undefined}
+            >
+              {t(lang, key)}
+            </a>
+          </li>
+        ))}
+        <li>
+          <a href={`/${lang}/how-to-donate/`} class="btn btn--donate nav__mobile-donate">
+            {t(lang, 'nav.donate')}
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  import '../js/theme-toggle';
+  import '../js/lang-toggle';
+
+  // Hamburger menu toggle
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('mobileMenu');
+    if (!toggle || !menu) return;
+
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      menu.hidden = isOpen;
+      toggle.classList.toggle('nav__hamburger--open', !isOpen);
+
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = isOpen ? '' : 'hidden';
+    });
+
+    // Close menu on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.hidden = true;
+        toggle.classList.remove('nav__hamburger--open');
+        document.body.style.overflow = '';
+        toggle.focus();
+      }
+    });
+
+    // Close menu when clicking a link inside it
+    menu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.hidden = true;
+        toggle.classList.remove('nav__hamburger--open');
+        document.body.style.overflow = '';
+      });
+    });
+  });
+</script>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--nav-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--nav-border);
+  }
+
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+  }
+
+  /* Logo */
+  .nav__logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .nav__logo img {
+    display: block;
+    height: 50px;
+    width: auto;
+  }
+
+  /* Desktop nav links */
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav__link {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: var(--space-xs) 0;
+    position: relative;
+    transition: color 0.2s var(--ease-out);
+  }
+
+  .nav__link:hover,
+  .nav__link:focus-visible {
+    color: var(--text);
+  }
+
+  .nav__link--active {
+    color: var(--text);
+  }
+
+  .nav__link--active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--red);
+    border-radius: 1px;
+  }
+
+  /* Actions */
+  .nav__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .nav__lang,
+  .nav__theme {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s var(--ease-out);
+    font-family: var(--font-body);
+    font-weight: 600;
+  }
+
+  .nav__lang {
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    padding: 0.375rem 0.625rem;
+  }
+
+  .nav__theme {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+  }
+
+  .nav__lang:hover,
+  .nav__lang:focus-visible,
+  .nav__theme:hover,
+  .nav__theme:focus-visible {
+    color: var(--text);
+    border-color: var(--text-muted);
+    background: var(--bg-alt);
+  }
+
+  /* Hamburger */
+  .nav__hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+  }
+
+  .nav__hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 1px;
+    transition: all 0.3s var(--ease-out);
+    transform-origin: center;
+  }
+
+  .nav__hamburger--open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav__hamburger--open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav__hamburger--open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Mobile menu */
+  .nav__mobile {
+    background: var(--nav-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--nav-border);
+    padding: var(--space-lg);
+    max-height: calc(100dvh - 72px);
+    overflow-y: auto;
+  }
+
+  .nav__mobile-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .nav__mobile-link {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: var(--space-sm) var(--space-sm);
+    border-radius: var(--radius-sm);
+    transition: all 0.2s var(--ease-out);
+  }
+
+  .nav__mobile-link:hover,
+  .nav__mobile-link:focus-visible {
+    color: var(--text);
+    background: var(--bg-alt);
+  }
+
+  .nav__mobile-link.nav__link--active {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .nav__mobile-donate {
+    margin-top: var(--space-md);
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .nav__links,
+    .nav__actions .btn {
+      display: none;
+    }
+
+    .nav__hamburger {
+      display: flex;
+    }
+
+    .nav__actions {
+      margin-right: var(--space-sm);
+    }
+  }
+
+  @media (min-width: 769px) {
+    .nav__mobile {
+      display: none !important;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .nav__hamburger span {
+      transition: none;
+    }
+
+    .nav__link,
+    .nav__lang,
+    .nav__theme,
+    .nav__mobile-link {
+      transition: none;
+    }
+  }
+</style>

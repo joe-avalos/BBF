@@ -1,5 +1,6 @@
 ---
 import Base from './Base.astro';
+import Header from '@/components/Header.astro';
 
 interface Props {
   title: string;
@@ -11,7 +12,7 @@ const { title, description, ogImage } = Astro.props;
 ---
 
 <Base title={title} description={description} ogImage={ogImage}>
-  <!-- Header component goes here -->
+  <Header />
   <slot />
   <!-- Footer component goes here -->
 </Base>
