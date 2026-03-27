@@ -1,11 +1,429 @@
 ---
-// Placeholder — replaced in Task 8 (Home Page)
 import Page from '@/layouts/Page.astro';
+import { t } from '@/i18n/utils';
+import type { Lang } from '@/i18n/utils';
+import StatCounter from '@/components/StatCounter.astro';
+import ProgramCard from '@/components/ProgramCard.astro';
+import CtaStrip from '@/components/CtaStrip.astro';
+import ImpactQuote from '@/components/ImpactQuote.astro';
+import Newsletter from '@/components/Newsletter.astro';
+import DonateButton from '@/components/DonateButton.astro';
+
+const lang: Lang = 'en';
 ---
 
-<Page title="Building Baja's Future" description="Nonprofit awarding full college scholarships to deserving students in Baja California Sur, Mexico.">
-  <div class="container section">
-    <h1 class="t-display t-display--lg">Building Baja's Future</h1>
-    <p class="t-body t-body--lg" style="margin-top: var(--space-md); color: var(--text-muted);">Site under construction.</p>
-  </div>
+<Page title={t(lang, 'meta.title')} description={t(lang, 'meta.description')}>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__bg">
+      <img
+        src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1600&q=80"
+        alt=""
+        class="hero__bg-img"
+        loading="eager"
+      />
+    </div>
+    <div class="container">
+      <div class="hero__content">
+        <div class="hero__eyebrow">
+          <span class="hero__eyebrow-line"></span>
+          <span class="hero__eyebrow-text t-label">{t(lang, 'hero.eyebrow')}</span>
+        </div>
+        <h1 class="hero__title t-display t-display--hero">
+          Leave Your<br />Mark on <em>Baja</em>
+        </h1>
+        <p class="hero__subtitle">
+          {t(lang, 'hero.subtitle')}
+        </p>
+        <div class="hero__actions">
+          <DonateButton lang={lang} label={t(lang, 'hero.cta')} />
+          <a href={`/${lang}/our-story/`} class="btn btn--outline">{t(lang, 'hero.secondary')}</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="section">
+    <div class="container">
+      <div class="stats">
+        <StatCounter
+          number={t(lang, 'stats.scholarsCount')}
+          label={t(lang, 'stats.scholars')}
+          subLabel={t(lang, 'stats.scholarsSubLabel')}
+        />
+        <StatCounter
+          number={t(lang, 'stats.yearsCount')}
+          label={t(lang, 'stats.years')}
+          subLabel={t(lang, 'stats.yearsSubLabel')}
+        />
+        <StatCounter
+          number={t(lang, 'stats.tuitionCount')}
+          label={t(lang, 'stats.tuition')}
+          subLabel={t(lang, 'stats.tuitionSubLabel')}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="mission">
+        <div class="mission__visual">
+          <div class="mission__img-wrapper">
+            <img
+              src="https://buildingbajasfuture.org/wp-content/uploads/2023/01/box2.jpg"
+              alt="BBF Scholars"
+              class="mission__img"
+              loading="lazy"
+            />
+          </div>
+          <div class="mission__img-accent"></div>
+        </div>
+        <div class="mission__content">
+          <div class="mission__eyebrow t-label">{t(lang, 'mission.eyebrow')}</div>
+          <h2 class="mission__title t-display t-display--md">{t(lang, 'mission.title')}</h2>
+          <p class="mission__text">{t(lang, 'mission.text')}</p>
+          <a href={`/${lang}/our-story/`} class="btn btn--ghost">{t(lang, 'mission.link')}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <section class="section">
+    <div class="container">
+      <div class="programs-header">
+        <div class="t-label programs-eyebrow">{t(lang, 'programs.eyebrow')}</div>
+        <h2 class="t-display t-display--md">{t(lang, 'programs.title')}</h2>
+      </div>
+      <div class="programs-grid">
+        <ProgramCard
+          image="https://buildingbajasfuture.org/wp-content/uploads/2023/01/box1.jpg"
+          tag={t(lang, 'programs.scholarships.tag')}
+          title={t(lang, 'programs.scholarships.title')}
+          text={t(lang, 'programs.scholarships.text')}
+          link={`/${lang}/how-to-apply/`}
+          linkText={t(lang, 'programs.scholarships.link')}
+        />
+        <ProgramCard
+          image="https://buildingbajasfuture.org/wp-content/uploads/2023/01/box2.jpg"
+          tag={t(lang, 'programs.scholars.tag')}
+          title={t(lang, 'programs.scholars.title')}
+          text={t(lang, 'programs.scholars.text')}
+          link={`/${lang}/scholars/`}
+          linkText={t(lang, 'programs.scholars.link')}
+        />
+        <ProgramCard
+          image="https://buildingbajasfuture.org/wp-content/uploads/2023/01/box3.jpg"
+          tag={t(lang, 'programs.sponsorship.tag')}
+          title={t(lang, 'programs.sponsorship.title')}
+          text={t(lang, 'programs.sponsorship.text')}
+          link={`/${lang}/how-to-donate/`}
+          linkText={t(lang, 'programs.sponsorship.link')}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Strip -->
+  <CtaStrip
+    eyebrow={t(lang, 'cta.eyebrow')}
+    title={t(lang, 'cta.title')}
+    text={t(lang, 'cta.text')}
+    buttonText={t(lang, 'cta.button')}
+    buttonHref="https://www.paypal.com/donate?token=m4ld99YqY75fhl96dRcSwlq_eay6RuFri7OTfucgIWOJZIlrQ7FZaFYVka9sdwSyguC9cqmvuEZrv_uS"
+    trustText={t(lang, 'cta.trust')}
+  />
+
+  <!-- Impact Quote -->
+  <section class="section">
+    <div class="container">
+      <ImpactQuote
+        quote={t(lang, 'quote.text')}
+        attribution={t(lang, 'quote.attr')}
+      />
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="section section--alt">
+    <div class="container">
+      <Newsletter lang={lang} />
+    </div>
+  </section>
 </Page>
+
+<style>
+  /* ═══════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════ */
+
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 72px;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero__bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      var(--bg) 0%,
+      transparent 40%
+    ), linear-gradient(
+      to bottom,
+      transparent 50%,
+      var(--bg) 100%
+    );
+    z-index: 1;
+  }
+
+  .hero__bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.15;
+  }
+
+  :global([data-theme="dark"]) .hero__bg-img {
+    opacity: 0.08;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+  }
+
+  .hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: var(--space-lg);
+    animation: fadeUp 0.8s var(--ease-out) 0.2s both;
+  }
+
+  .hero__eyebrow-line {
+    width: 40px;
+    height: 1.5px;
+    background: var(--red);
+  }
+
+  .hero__eyebrow-text {
+    color: var(--red);
+  }
+
+  .hero__title {
+    margin-bottom: var(--space-lg);
+    animation: fadeUp 0.8s var(--ease-out) 0.4s both;
+  }
+
+  .hero__title em {
+    font-style: italic;
+    color: var(--red);
+  }
+
+  .hero__subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 540px;
+    line-height: 1.75;
+    margin-bottom: var(--space-xl);
+    animation: fadeUp 0.8s var(--ease-out) 0.6s both;
+  }
+
+  .hero__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    animation: fadeUp 0.8s var(--ease-out) 0.8s both;
+  }
+
+  .hero__scroll {
+    position: absolute;
+    bottom: var(--space-xl);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-light);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    animation: fadeUp 0.8s var(--ease-out) 1s both;
+  }
+
+  .hero__scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--text-light), transparent);
+    animation: scrollPulse 2s var(--ease-in-out) infinite;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(0.5); transform-origin: top; }
+    50% { opacity: 1; transform: scaleY(1); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero__eyebrow,
+    .hero__title,
+    .hero__subtitle,
+    .hero__actions,
+    .hero__scroll {
+      animation: none;
+    }
+
+    .hero__scroll-line {
+      animation: none;
+    }
+  }
+
+  /* ═══════════════════════════════════════════════
+     STATS
+     ═══════════════════════════════════════════════ */
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    padding: var(--space-3xl) 0;
+  }
+
+  .stats :global(.stat:not(:last-child))::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 25%;
+    height: 50%;
+    width: 1px;
+    background: var(--border);
+  }
+
+  /* ═══════════════════════════════════════════════
+     MISSION
+     ═══════════════════════════════════════════════ */
+
+  .mission {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: center;
+  }
+
+  .mission__visual {
+    position: relative;
+  }
+
+  .mission__img-wrapper {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 4/5;
+  }
+
+  .mission__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .mission__img-accent {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 200px;
+    height: 200px;
+    border: 2px solid var(--red);
+    border-radius: var(--radius-lg);
+    opacity: 0.3;
+  }
+
+  .mission__content {
+    max-width: 480px;
+  }
+
+  .mission__eyebrow {
+    color: var(--red);
+    margin-bottom: var(--space-md);
+  }
+
+  .mission__title {
+    margin-bottom: var(--space-lg);
+  }
+
+  .mission__text {
+    color: var(--text-muted);
+    margin-bottom: var(--space-lg);
+    line-height: 1.8;
+  }
+
+  /* ═══════════════════════════════════════════════
+     PROGRAMS
+     ═══════════════════════════════════════════════ */
+
+  .programs-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+  }
+
+  .programs-eyebrow {
+    color: var(--red);
+    margin-bottom: var(--space-md);
+  }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  /* ═══════════════════════════════════════════════
+     RESPONSIVE
+     ═══════════════════════════════════════════════ */
+
+  @media (max-width: 768px) {
+    .stats {
+      grid-template-columns: 1fr;
+      gap: 0;
+      padding: var(--space-xl) 0;
+    }
+
+    .stats :global(.stat:not(:last-child))::after {
+      display: none;
+    }
+
+    .mission {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+
+    .programs-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
