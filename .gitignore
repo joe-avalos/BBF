@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.astro/
+
+# IDE
+.idea/
+
+# Claude Code
+.claude/
+CLAUDE.md
+
+# Internal docs
+docs/
+
+# Intake (delete after first session)
+INTAKE.md
+
+# Templates (if copied into project)
+templates/
+
+# Misc
+*.json
+!package.json
+!package-lock.json
+!tsconfig.json
