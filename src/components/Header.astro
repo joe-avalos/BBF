@@ -1,5 +1,6 @@
 ---
 import { getLang, t, getLocalePath } from '@/i18n/utils';
+import Logo from './Logo.astro';
 
 const lang = getLang(Astro.url);
 const altLang = lang === 'en' ? 'es' : 'en';
@@ -23,7 +24,7 @@ function isActive(href: string): boolean {
 <header class="nav" role="banner">
   <div class="nav__inner">
     <a href={`/${lang}/`} class="nav__logo" aria-label="Building Baja's Future — Home">
-      <img src="/logo.svg" alt="Building Baja's Future" width="131" height="50" />
+      <Logo width={131} height={50} />
     </a>
 
     <nav aria-label="Main navigation">

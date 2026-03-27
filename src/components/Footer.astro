@@ -1,5 +1,6 @@
 ---
 import { getLang, t } from '@/i18n/utils';
+import Logo from './Logo.astro';
 
 const lang = getLang(Astro.url);
 ---
@@ -11,13 +12,7 @@ const lang = getLang(Astro.url);
       <!-- Column 1: Brand -->
       <div class="footer__col footer__col--brand">
         <a href={`/${lang}/`} class="footer__logo-link" aria-label="Building Baja's Future — Home">
-          <img
-            src="/logo.svg"
-            alt="Building Baja's Future"
-            width="131"
-            height="50"
-            class="footer__logo"
-          />
+          <Logo width={131} height={50} class="footer__logo" />
         </a>
         <p class="footer__description">{t(lang, 'footer.description')}</p>
       </div>
@@ -97,7 +92,7 @@ const lang = getLang(Astro.url);
     display: block;
     height: 50px;
     width: auto;
-    filter: brightness(10);
+    color: #fff;
     opacity: 0.9;
   }
 
