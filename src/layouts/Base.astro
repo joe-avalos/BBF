@@ -1,0 +1,106 @@
+---
+import { getLang, getLocalePath } from '@/i18n/utils';
+import '@/styles/theme.css';
+import '@/styles/global.css';
+import '@/styles/utilities.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const { title, description = '', ogImage = '/og-default.png' } = Astro.props;
+
+const lang = getLang(Astro.url);
+const canonicalURL = new URL(Astro.url.pathname, 'https://buildingbajasfuture.org');
+const ogImageURL = ogImage.startsWith('http')
+  ? ogImage
+  : new URL(ogImage, 'https://buildingbajasfuture.org').toString();
+
+const enHref = new URL(getLocalePath(Astro.url, 'en'), 'https://buildingbajasfuture.org').toString();
+const esHref = new URL(getLocalePath(Astro.url, 'es'), 'https://buildingbajasfuture.org').toString();
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'NonprofitOrganization',
+  name: "Building Baja's Future",
+  alternateName: 'BBF',
+  url: 'https://buildingbajasfuture.org',
+  logo: 'https://buildingbajasfuture.org/wp-content/uploads/2023/01/logo.svg',
+  description:
+    'Nonprofit organization awarding full college scholarships to deserving students in Baja California Sur, Mexico.',
+  foundingDate: '2006',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '378 West Avenue 45',
+    addressLocality: 'Los Angeles',
+    addressRegion: 'CA',
+    postalCode: '90065',
+    addressCountry: 'US',
+  },
+};
+---
+
+<!doctype html>
+<html lang={lang} data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- FOUC prevention: set theme before first paint -->
+    <script is:inline>
+      (function () {
+        const theme = localStorage.getItem('theme');
+        if (theme) {
+          document.documentElement.setAttribute('data-theme', theme);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+
+    <!-- Primary meta -->
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonicalURL.toString()} />
+
+    <!-- hreflang alternates -->
+    <link rel="alternate" hreflang="en" href={enHref} />
+    <link rel="alternate" hreflang="es" href={esHref} />
+    <link rel="alternate" hreflang="x-default" href={enHref} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:url" content={canonicalURL.toString()} />
+    <meta property="og:locale" content={lang === 'es' ? 'es_MX' : 'en_US'} />
+    <meta property="og:site_name" content="Building Baja's Future" />
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "PLACEHOLDER"}'></script>
+  </head>
+  <body>
+    <a href="#main" class="sr-only">Skip to content</a>
+    <main id="main">
+      <slot />
+    </main>
+  </body>
+</html>
