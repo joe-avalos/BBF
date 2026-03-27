@@ -1,4 +1,9 @@
 ---
+// Mailchimp integration:
+// 1. Log in to Mailchimp → Audience → Signup forms → Embedded forms
+// 2. Copy the form `action` URL (looks like https://xxxx.us1.list-manage.com/subscribe/post?u=...&id=...)
+// 3. Replace the `action="#"` below with that URL
+// 4. Replace `b_PLACEHOLDER` with the honeypot field name from your Mailchimp embed code
 import { t } from '@/i18n/utils';
 import type { Lang } from '@/i18n/utils';
 
@@ -12,14 +17,20 @@ const { lang } = Astro.props;
 <section class="newsletter">
   <h2 class="newsletter__title">{t(lang, 'newsletter.title')}</h2>
   <p class="newsletter__text">{t(lang, 'newsletter.text')}</p>
-  <form class="newsletter__form" action="#" method="post">
+  <!-- Replace # with actual Mailchimp form action URL -->
+  <form class="newsletter__form" action="#" method="post" target="_blank" novalidate>
     <input
       type="email"
       name="EMAIL"
       required
+      autocomplete="email"
       class="newsletter__input"
       placeholder={t(lang, 'newsletter.placeholder')}
     />
+    <!-- Mailchimp bot protection — do not remove -->
+    <div style="position:absolute;left:-5000px" aria-hidden="true">
+      <input type="text" name="b_PLACEHOLDER" tabindex="-1" value="" />
+    </div>
     <button type="submit" class="btn btn--donate-sm">{t(lang, 'newsletter.button')}</button>
   </form>
 </section>
