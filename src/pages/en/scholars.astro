@@ -1,0 +1,145 @@
+---
+import { getCollection } from 'astro:content';
+import Page from '@/layouts/Page.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import ScholarCard from '@/components/ScholarCard.astro';
+import { t } from '@/i18n/utils';
+import type { Lang } from '@/i18n/utils';
+
+const lang: Lang = 'en';
+const scholars = await getCollection('scholars');
+
+const universities = [...new Set(scholars.map(s => s.data.university))].sort();
+const degrees = [...new Set(scholars.map(s => s.data.degree))].sort();
+const total = scholars.length;
+---
+
+<Page title={t(lang, 'meta.title')} description={t(lang, 'meta.description')}>
+
+  <!-- Page Header -->
+  <PageHeader
+    eyebrow={t(lang, 'scholars.eyebrow')}
+    title={t(lang, 'scholars.title')}
+    subtitle={t(lang, 'scholars.subtitle')}
+  />
+
+  <!-- Filter Bar -->
+  <section class="section section--filters">
+    <div class="container">
+      <div class="filter-bar">
+        <select id="uni-filter" class="filter-select" aria-label={t(lang, 'scholars.filterUni')}>
+          <option value="">{t(lang, 'scholars.filterUni')}</option>
+          {universities.map(uni => (
+            <option value={uni}>{uni}</option>
+          ))}
+        </select>
+        <select id="degree-filter" class="filter-select" aria-label={t(lang, 'scholars.filterDegree')}>
+          <option value="">{t(lang, 'scholars.filterDegree')}</option>
+          {degrees.map(degree => (
+            <option value={degree}>{degree}</option>
+          ))}
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scholar Grid -->
+  <section class="section section--grid">
+    <div class="container">
+      <div class="scholars-grid">
+        {scholars.map(scholar => (
+          <ScholarCard
+            name={scholar.data.name}
+            photo={scholar.data.photo}
+            detail={scholar.data.degree}
+            university={scholar.data.university}
+            degree={scholar.data.degree}
+          />
+        ))}
+      </div>
+
+      <!-- Count -->
+      <p class="scholars-count">
+        {t(lang, 'scholars.showing')} <span id="scholar-count">{total}</span> {t(lang, 'scholars.of')} {total} {t(lang, 'scholars.scholars')}
+      </p>
+    </div>
+  </section>
+
+</Page>
+
+<script src="../../js/scholar-filter.ts"></script>
+
+<style>
+  /* ═══════════════════════════════════════════════
+     FILTER BAR
+     ═══════════════════════════════════════════════ */
+
+  .section--filters {
+    padding-bottom: 0;
+  }
+
+  .filter-bar {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .filter-select {
+    appearance: none;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.875rem;
+    padding: var(--space-sm) var(--space-xl) var(--space-sm) var(--space-md);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--space-sm) center;
+    min-width: 200px;
+    transition: border-color 0.2s var(--ease-out);
+  }
+
+  .filter-select:hover,
+  .filter-select:focus {
+    border-color: var(--red);
+    outline: none;
+  }
+
+  /* ═══════════════════════════════════════════════
+     SCHOLAR GRID
+     ═══════════════════════════════════════════════ */
+
+  .scholars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  /* ═══════════════════════════════════════════════
+     COUNT
+     ═══════════════════════════════════════════════ */
+
+  .scholars-count {
+    margin-top: var(--space-2xl);
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  /* ═══════════════════════════════════════════════
+     RESPONSIVE
+     ═══════════════════════════════════════════════ */
+
+  @media (max-width: 480px) {
+    .filter-select {
+      min-width: 100%;
+    }
+
+    .filter-bar {
+      flex-direction: column;
+    }
+  }
+</style>
