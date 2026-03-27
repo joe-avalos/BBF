@@ -1,0 +1,58 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  text: string;
+}
+
+const { icon, title, text } = Astro.props;
+---
+
+<div class="tree-card">
+  <div class="tree-card__icon">{icon}</div>
+  <h3 class="tree-card__title">{title}</h3>
+  <p class="tree-card__text">{text}</p>
+</div>
+
+<style>
+  .tree-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    transition: all 0.3s var(--ease-out);
+    text-align: center;
+  }
+
+  .tree-card:hover {
+    border-color: var(--red);
+    transform: translateY(-2px);
+  }
+
+  .tree-card__icon {
+    font-size: 1.8rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .tree-card__title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+  }
+
+  .tree-card__text {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tree-card {
+      transition: none;
+    }
+    .tree-card:hover {
+      transform: none;
+    }
+  }
+</style>

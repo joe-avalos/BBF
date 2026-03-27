@@ -1,0 +1,79 @@
+---
+import { t } from '@/i18n/utils';
+import type { Lang } from '@/i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<section class="newsletter">
+  <h2 class="newsletter__title">{t(lang, 'newsletter.title')}</h2>
+  <p class="newsletter__text">{t(lang, 'newsletter.text')}</p>
+  <form class="newsletter__form" action="#" method="post">
+    <input
+      type="email"
+      name="EMAIL"
+      required
+      class="newsletter__input"
+      placeholder={t(lang, 'newsletter.placeholder')}
+    />
+    <button type="submit" class="btn btn--donate-sm">{t(lang, 'newsletter.button')}</button>
+  </form>
+</section>
+
+<style>
+  .newsletter {
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .newsletter__title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+  }
+
+  .newsletter__text {
+    color: var(--text-muted);
+    margin-bottom: var(--space-lg);
+  }
+
+  .newsletter__form {
+    display: flex;
+    gap: var(--space-sm);
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  .newsletter__input {
+    flex: 1;
+    padding: 14px 18px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg-card);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .newsletter__input::placeholder {
+    color: var(--text-light);
+  }
+
+  .newsletter__input:focus {
+    border-color: var(--red);
+  }
+
+  @media (max-width: 480px) {
+    .newsletter__form {
+      flex-direction: column;
+    }
+  }
+</style>

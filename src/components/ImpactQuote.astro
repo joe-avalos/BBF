@@ -1,0 +1,45 @@
+---
+interface Props {
+  quote: string;
+  attribution: string;
+}
+
+const { quote, attribution } = Astro.props;
+---
+
+<blockquote class="impact-quote">
+  <div class="impact-quote__mark">&ldquo;</div>
+  <p class="impact-quote__text">{quote}</p>
+  <footer class="impact-quote__attr">{attribution}</footer>
+</blockquote>
+
+<style>
+  .impact-quote {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: var(--space-xl) 0;
+  }
+
+  .impact-quote__mark {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    color: var(--red);
+    line-height: 0.5;
+    opacity: 0.3;
+  }
+
+  .impact-quote__text {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.5;
+    margin: var(--space-md) 0;
+  }
+
+  .impact-quote__attr {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+</style>

@@ -1,0 +1,23 @@
+---
+import { t } from '@/i18n/utils';
+import type { Lang } from '@/i18n/utils';
+
+interface Props {
+  size?: 'sm' | 'lg';
+  lang: Lang;
+  label?: string;
+}
+
+const { size = 'lg', lang, label } = Astro.props;
+const btnClass = size === 'sm' ? 'btn btn--donate-sm' : 'btn btn--donate';
+const text = label ?? t(lang, 'nav.donate');
+---
+
+<a
+  href="https://www.paypal.com/donate?token=m4ld99YqY75fhl96dRcSwlq_eay6RuFri7OTfucgIWOJZIlrQ7FZaFYVka9sdwSyguC9cqmvuEZrv_uS"
+  target="_blank"
+  rel="noopener"
+  class={btnClass}
+>
+  {text}
+</a>

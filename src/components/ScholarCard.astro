@@ -1,0 +1,64 @@
+---
+interface Props {
+  name: string;
+  photo: string;
+  detail: string;
+  university?: string;
+  degree?: string;
+}
+
+const { name, photo, detail, university, degree } = Astro.props;
+---
+
+<div class="scholar-card" data-university={university} data-degree={degree}>
+  <img src={photo} alt={name} class="scholar-card__img" loading="lazy" />
+  <div class="scholar-card__info">
+    <div class="scholar-card__name">{name}</div>
+    <div class="scholar-card__detail">{detail}</div>
+  </div>
+</div>
+
+<style>
+  .scholar-card {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    transition: all 0.3s var(--ease-out);
+  }
+
+  .scholar-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .scholar-card__img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+  }
+
+  .scholar-card__info {
+    padding: var(--space-md);
+  }
+
+  .scholar-card__name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+  }
+
+  .scholar-card__detail {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scholar-card {
+      transition: none;
+    }
+    .scholar-card:hover {
+      transform: none;
+    }
+  }
+</style>
