@@ -1,0 +1,218 @@
+---
+import Page from '@/layouts/Page.astro';
+import { t } from '@/i18n/utils';
+import type { Lang } from '@/i18n/utils';
+import PageHeader from '@/components/PageHeader.astro';
+import TimelineItem from '@/components/TimelineItem.astro';
+import TreeCard from '@/components/TreeCard.astro';
+
+const lang: Lang = 'en';
+---
+
+<Page title={t(lang, 'meta.title')} description={t(lang, 'meta.description')}>
+
+  <!-- Page Header -->
+  <PageHeader
+    eyebrow={t(lang, 'story.eyebrow')}
+    title={t(lang, 'story.title')}
+    subtitle={t(lang, 'story.subtitle')}
+  />
+
+  <!-- Timeline -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="t-label section-eyebrow">{t(lang, 'story.timeline.eyebrow')}</div>
+        <h2 class="t-display t-display--md">{t(lang, 'story.timeline.title')}</h2>
+      </div>
+      <div class="timeline">
+        <TimelineItem
+          year="2006"
+          title={t(lang, 'story.2006.title')}
+          text={t(lang, 'story.2006.text')}
+        />
+        <TimelineItem
+          year="2008"
+          title={t(lang, 'story.2008.title')}
+          text={t(lang, 'story.2008.text')}
+        />
+        <TimelineItem
+          year="2012"
+          title={t(lang, 'story.2012.title')}
+          text={t(lang, 'story.2012.text')}
+        />
+        <TimelineItem
+          year="Today"
+          title={t(lang, 'story.today.title')}
+          text={t(lang, 'story.today.text')}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Tree of Life -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="t-label section-eyebrow">{t(lang, 'story.tree.eyebrow')}</div>
+        <h2 class="t-display t-display--md">{t(lang, 'story.tree.title')}</h2>
+        <p class="section-subtitle">{t(lang, 'story.tree.subtitle')}</p>
+      </div>
+      <div class="tree-grid">
+        <TreeCard icon="💻" title={t(lang, 'story.tree.technology')} text={t(lang, 'story.tree.technologyText')} />
+        <TreeCard icon="💰" title={t(lang, 'story.tree.economic')} text={t(lang, 'story.tree.economicText')} />
+        <TreeCard icon="🎨" title={t(lang, 'story.tree.artistic')} text={t(lang, 'story.tree.artisticText')} />
+        <TreeCard icon="💙" title={t(lang, 'story.tree.emotional')} text={t(lang, 'story.tree.emotionalText')} />
+        <TreeCard icon="🏊" title={t(lang, 'story.tree.health')} text={t(lang, 'story.tree.healthText')} />
+        <TreeCard icon="🎶" title={t(lang, 'story.tree.cultural')} text={t(lang, 'story.tree.culturalText')} />
+        <TreeCard icon="👥" title={t(lang, 'story.tree.psychological')} text={t(lang, 'story.tree.psychologicalText')} />
+        <TreeCard icon="🎉" title={t(lang, 'story.tree.social')} text={t(lang, 'story.tree.socialText')} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Logo Meaning -->
+  <section class="section">
+    <div class="container">
+      <div class="logo-meaning">
+        <div class="logo-meaning__content">
+          <div class="t-label logo-meaning__eyebrow">{t(lang, 'story.logo.eyebrow')}</div>
+          <h2 class="t-display t-display--md">{t(lang, 'story.logo.title')}</h2>
+          <p class="logo-meaning__text">{t(lang, 'story.logo.text')}</p>
+        </div>
+        <div class="logo-meaning__visual">
+          <img
+            src="https://buildingbajasfuture.org/wp-content/uploads/2023/01/mark2.png"
+            alt="BBF logo mark — a hand referencing prehistoric Baja California cave paintings"
+            class="logo-meaning__img"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Page>
+
+<style>
+  /* ═══════════════════════════════════════════════
+     SECTION HEADER
+     ═══════════════════════════════════════════════ */
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .section-eyebrow {
+    color: var(--red);
+    margin-bottom: var(--space-md);
+  }
+
+  .section-subtitle {
+    color: var(--text-muted);
+    max-width: 560px;
+    margin: var(--space-md) auto 0;
+    line-height: 1.75;
+  }
+
+  /* ═══════════════════════════════════════════════
+     TIMELINE
+     ═══════════════════════════════════════════════ */
+
+  .timeline {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+    padding-left: 60px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+
+  /* ═══════════════════════════════════════════════
+     TREE OF LIFE GRID
+     ═══════════════════════════════════════════════ */
+
+  .tree-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+  }
+
+  /* ═══════════════════════════════════════════════
+     LOGO MEANING
+     ═══════════════════════════════════════════════ */
+
+  .logo-meaning {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: center;
+  }
+
+  .logo-meaning__eyebrow {
+    color: var(--red);
+    margin-bottom: var(--space-md);
+  }
+
+  .logo-meaning__content h2 {
+    margin-bottom: var(--space-lg);
+  }
+
+  .logo-meaning__text {
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  .logo-meaning__visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo-meaning__img {
+    max-width: 280px;
+    width: 100%;
+    opacity: 0.8;
+  }
+
+  /* ═══════════════════════════════════════════════
+     RESPONSIVE
+     ═══════════════════════════════════════════════ */
+
+  @media (max-width: 1024px) {
+    .tree-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .tree-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-md);
+    }
+
+    .logo-meaning {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+
+    .logo-meaning__visual {
+      order: -1;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .tree-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
