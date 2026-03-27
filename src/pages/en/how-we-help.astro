@@ -1,0 +1,127 @@
+---
+import Page from '@/layouts/Page.astro';
+import { t } from '@/i18n/utils';
+import type { Lang } from '@/i18n/utils';
+import PageHeader from '@/components/PageHeader.astro';
+import CtaStrip from '@/components/CtaStrip.astro';
+
+const lang: Lang = 'en';
+
+const programs = [
+  { num: '01', key: 'help.program1' },
+  { num: '02', key: 'help.program2' },
+  { num: '03', key: 'help.program3' },
+  { num: '04', key: 'help.program4' },
+  { num: '05', key: 'help.program5' },
+  { num: '06', key: 'help.program6' },
+  { num: '07', key: 'help.program7' },
+  { num: '08', key: 'help.program8' },
+  { num: '09', key: 'help.program9' },
+  { num: '10', key: 'help.program10' },
+] as const;
+---
+
+<Page title={t(lang, 'meta.title')} description={t(lang, 'meta.description')}>
+
+  <!-- Page Header -->
+  <PageHeader
+    eyebrow={t(lang, 'help.eyebrow')}
+    title={t(lang, 'help.title')}
+    subtitle={t(lang, 'help.subtitle')}
+  />
+
+  <!-- Core Programs -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="t-label section-eyebrow">{t(lang, 'help.core.eyebrow')}</div>
+        <h2 class="t-display t-display--md">{t(lang, 'help.core.title')}</h2>
+      </div>
+      <ul class="program-list">
+        {programs.map(({ num, key }) => (
+          <li class="program-item">
+            <div class="program-item__number">{num}</div>
+            <div>
+              <div class="program-item__title">{t(lang, `${key}.title` as any)}</div>
+              <div class="program-item__text">{t(lang, `${key}.text` as any)}</div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA Strip -->
+  <CtaStrip
+    eyebrow={t(lang, 'help.cta.eyebrow')}
+    title={t(lang, 'help.cta.title')}
+    text={t(lang, 'help.cta.text')}
+    buttonText={t(lang, 'cta.button')}
+    buttonHref="https://www.paypal.com/donate/?hosted_button_id=BUILDINGBAJA"
+    trustText={t(lang, 'cta.trust')}
+  />
+
+</Page>
+
+<style>
+  /* ═══════════════════════════════════════════════
+     SECTION HEADER
+     ═══════════════════════════════════════════════ */
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .section-eyebrow {
+    color: var(--red);
+    margin-bottom: var(--space-md);
+  }
+
+  /* ═══════════════════════════════════════════════
+     PROGRAM LIST
+     ═══════════════════════════════════════════════ */
+
+  .program-list {
+    display: grid;
+    gap: var(--space-lg);
+    max-width: 800px;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+  }
+
+  .program-item {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: all 0.3s var(--ease-out);
+  }
+
+  .program-item:hover {
+    border-color: var(--red);
+  }
+
+  .program-item__number {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--red);
+    line-height: 1;
+  }
+
+  .program-item__title {
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+  }
+
+  .program-item__text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+</style>
