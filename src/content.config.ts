@@ -10,4 +10,17 @@ const scholars = defineCollection({
   }),
 });
 
-export const collections = { scholars };
+const blog = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    titleEs: z.string().optional(),
+    date: z.date(),
+    excerpt: z.string(),
+    excerptEs: z.string().optional(),
+    image: z.string().optional(),
+    author: z.string().default('BBF'),
+  }),
+});
+
+export const collections = { scholars, blog };
