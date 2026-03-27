@@ -1,0 +1,143 @@
+---
+import Page from '@/layouts/Page.astro';
+import { t } from '@/i18n/utils';
+import type { Lang } from '@/i18n/utils';
+import PageHeader from '@/components/PageHeader.astro';
+import DonateButton from '@/components/DonateButton.astro';
+
+const lang: Lang = 'es';
+---
+
+<Page title={t(lang, 'meta.title')} description={t(lang, 'meta.description')}>
+
+  <!-- Page Header -->
+  <PageHeader
+    eyebrow={t(lang, 'donate.eyebrow')}
+    title={t(lang, 'donate.title')}
+    subtitle={t(lang, 'donate.subtitle')}
+  />
+
+  <!-- Donate Options -->
+  <section class="section">
+    <div class="container">
+      <div class="donate-options">
+        <!-- Online via PayPal -->
+        <div class="donate-card">
+          <div class="donate-card__icon">💳</div>
+          <h3 class="donate-card__title">{t(lang, 'donate.online.title')}</h3>
+          <p class="donate-card__text">{t(lang, 'donate.online.text')}</p>
+          <div class="donate-card__action">
+            <DonateButton size="lg" lang={lang} label={t(lang, 'donate.online.button')} />
+          </div>
+        </div>
+
+        <!-- Donate by Check -->
+        <div class="donate-card">
+          <div class="donate-card__icon">✉</div>
+          <h3 class="donate-card__title">{t(lang, 'donate.check.title')}</h3>
+          <p class="donate-card__text">{t(lang, 'donate.check.text')}</p>
+          <address class="donate-card__address">{t(lang, 'donate.check.address')}</address>
+          <div class="donate-card__action">
+            <span class="btn btn--outline">{t(lang, 'donate.check.payable')}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sponsor a Scholar -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="sponsor-section">
+        <div class="t-label sponsor-eyebrow">{t(lang, 'donate.sponsor.eyebrow')}</div>
+        <h2 class="t-display t-display--md">{t(lang, 'donate.sponsor.title')}</h2>
+        <p class="sponsor-text">{t(lang, 'donate.sponsor.text')}</p>
+        <a href="mailto:info@buildingbajasfuture.org" class="btn btn--outline">{t(lang, 'donate.sponsor.button')}</a>
+      </div>
+    </div>
+  </section>
+
+</Page>
+
+<style>
+  .section--alt {
+    background: var(--bg-alt);
+  }
+
+  .donate-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .donate-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    text-align: center;
+    transition: all 0.3s var(--ease-out);
+  }
+
+  .donate-card:hover {
+    border-color: var(--red);
+    transform: translateY(-2px);
+  }
+
+  .donate-card__icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .donate-card__title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+  }
+
+  .donate-card__text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-lg);
+  }
+
+  .donate-card__address {
+    font-style: normal;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    white-space: pre-line;
+    margin-bottom: var(--space-lg);
+  }
+
+  .donate-card__action {
+    margin-top: auto;
+  }
+
+  .sponsor-section {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .sponsor-eyebrow {
+    color: var(--gold);
+    margin-bottom: var(--space-md);
+  }
+
+  .sponsor-text {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: var(--space-lg) 0 var(--space-xl);
+  }
+
+  @media (max-width: 600px) {
+    .donate-options {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

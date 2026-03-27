@@ -1,0 +1,203 @@
+---
+import Page from '@/layouts/Page.astro';
+import { t } from '@/i18n/utils';
+import type { Lang } from '@/i18n/utils';
+import PageHeader from '@/components/PageHeader.astro';
+
+const lang: Lang = 'en';
+
+const requirements = [
+  { key: 'apply.req1' },
+  { key: 'apply.req2' },
+  { key: 'apply.req3' },
+  { key: 'apply.req4' },
+] as const;
+
+const steps = [
+  { num: '1', key: 'apply.step1' },
+  { num: '2', key: 'apply.step2' },
+  { num: '3', key: 'apply.step3' },
+  { num: '4', key: 'apply.step4' },
+  { num: '5', key: 'apply.step5' },
+  { num: '6', key: 'apply.step6' },
+] as const;
+---
+
+<Page title={t(lang, 'meta.title')} description={t(lang, 'meta.description')}>
+
+  <!-- Page Header -->
+  <PageHeader
+    eyebrow={t(lang, 'apply.eyebrow')}
+    title={t(lang, 'apply.title')}
+    subtitle={t(lang, 'apply.subtitle')}
+  />
+
+  <!-- Eligibility -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="t-label section-eyebrow">{t(lang, 'apply.req.eyebrow')}</div>
+        <h2 class="t-display t-display--md">{t(lang, 'apply.req.title')}</h2>
+      </div>
+      <ul class="req-list">
+        {requirements.map(({ key }) => (
+          <li class="program-item">
+            <div class="program-item__icon">✓</div>
+            <div>
+              <div class="program-item__title">{t(lang, `${key}.title` as any)}</div>
+              <div class="program-item__text">{t(lang, `${key}.text` as any)}</div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Application Steps -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="t-label section-eyebrow">{t(lang, 'apply.steps.eyebrow')}</div>
+        <h2 class="t-display t-display--md">{t(lang, 'apply.steps.title')}</h2>
+      </div>
+      <div class="steps-grid">
+        {steps.map(({ num, key }) => (
+          <div class="step-card">
+            <div class="step-card__number">{num}</div>
+            <div class="step-card__title">{t(lang, `${key}.title` as any)}</div>
+            <div class="step-card__text">{t(lang, `${key}.text` as any)}</div>
+          </div>
+        ))}
+      </div>
+      <div class="download-cta">
+        <a
+          href="https://buildingbajasfuture.org/wp-content/uploads/2025/05/Solicitud-BBF-version-3.pdf"
+          target="_blank"
+          rel="noopener"
+          class="btn btn--donate"
+        >
+          {t(lang, 'apply.download')}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Page>
+
+<style>
+  /* ═══════════════════════════════════════════════
+     SECTION HEADER
+     ═══════════════════════════════════════════════ */
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .section-eyebrow {
+    color: var(--red);
+    margin-bottom: var(--space-md);
+  }
+
+  .section--alt {
+    background: var(--bg-alt);
+  }
+
+  /* ═══════════════════════════════════════════════
+     REQUIREMENTS LIST
+     ═══════════════════════════════════════════════ */
+
+  .req-list {
+    display: grid;
+    gap: var(--space-lg);
+    max-width: 800px;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+  }
+
+  .program-item {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: all 0.3s var(--ease-out);
+  }
+
+  .program-item:hover {
+    border-color: var(--red);
+  }
+
+  .program-item__icon {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--red);
+    line-height: 1;
+  }
+
+  .program-item__title {
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+  }
+
+  .program-item__text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  /* ═══════════════════════════════════════════════
+     STEPS GRID
+     ═══════════════════════════════════════════════ */
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .step-card {
+    position: relative;
+    padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  }
+
+  .step-card__number {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    font-weight: 700;
+    color: var(--text);
+    opacity: 0.06;
+    line-height: 1;
+    position: absolute;
+    top: 0;
+    left: var(--space-lg);
+  }
+
+  .step-card__title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: var(--space-sm);
+    position: relative;
+  }
+
+  .step-card__text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    position: relative;
+  }
+
+  /* ═══════════════════════════════════════════════
+     DOWNLOAD CTA
+     ═══════════════════════════════════════════════ */
+
+  .download-cta {
+    text-align: center;
+    margin-top: var(--space-3xl);
+  }
+</style>

@@ -1,0 +1,110 @@
+---
+import Page from '@/layouts/Page.astro';
+import { t } from '@/i18n/utils';
+import type { Lang } from '@/i18n/utils';
+import PageHeader from '@/components/PageHeader.astro';
+import CtaStrip from '@/components/CtaStrip.astro';
+
+const lang: Lang = 'en';
+
+const sponsors = Array.from({ length: 6 }, (_, i) => `Sponsor Name ${i + 1}`);
+---
+
+<Page title={t(lang, 'meta.title')} description={t(lang, 'meta.description')}>
+
+  <!-- Page Header -->
+  <PageHeader
+    eyebrow={t(lang, 'friends.eyebrow')}
+    title={t(lang, 'friends.title')}
+    subtitle={t(lang, 'friends.subtitle')}
+  />
+
+  <!-- Sponsors -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="t-label sponsor-eyebrow">{t(lang, 'friends.sponsors.eyebrow')}</div>
+        <h2 class="t-display t-display--md">{t(lang, 'friends.sponsors.title')}</h2>
+      </div>
+      <div class="sponsors-grid">
+        {sponsors.map((name) => (
+          <div class="sponsor-card">
+            <div class="sponsor-card__placeholder"></div>
+            <div class="sponsor-card__name">{name}</div>
+          </div>
+        ))}
+      </div>
+      <p class="sponsors-note">Sponsor names and logos will be populated from client data.</p>
+    </div>
+  </section>
+
+  <!-- CTA Strip -->
+  <CtaStrip
+    eyebrow={t(lang, 'friends.cta.eyebrow')}
+    title={t(lang, 'friends.cta.title')}
+    text={t(lang, 'friends.cta.text')}
+    buttonText={t(lang, 'friends.cta.button')}
+    buttonHref="mailto:info@buildingbajasfuture.org"
+  />
+
+</Page>
+
+<style>
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .sponsor-eyebrow {
+    color: var(--gold);
+    margin-bottom: var(--space-md);
+  }
+
+  /* ═══════════════════════════════════════════════
+     SPONSORS GRID
+     ═══════════════════════════════════════════════ */
+
+  .sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--space-lg);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .sponsor-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    text-align: center;
+    transition: all 0.3s var(--ease-out);
+  }
+
+  .sponsor-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .sponsor-card__placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--bg-alt);
+    margin: 0 auto var(--space-md);
+  }
+
+  .sponsor-card__name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .sponsors-note {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.8rem;
+    font-style: italic;
+    margin-top: var(--space-xl);
+  }
+</style>
