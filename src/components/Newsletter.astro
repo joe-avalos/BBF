@@ -19,8 +19,10 @@ const { lang } = Astro.props;
   <p class="newsletter__text">{t(lang, 'newsletter.text')}</p>
   <!-- Replace # with actual Mailchimp form action URL -->
   <form class="newsletter__form" action="#" method="post" target="_blank" novalidate>
+    <label for="newsletter-email" class="sr-only">{t(lang, 'newsletter.placeholder')}</label>
     <input
       type="email"
+      id="newsletter-email"
       name="EMAIL"
       required
       autocomplete="email"
@@ -71,15 +73,16 @@ const { lang } = Astro.props;
     font-family: var(--font-body);
     font-size: 0.9rem;
     transition: border-color 0.2s;
-    outline: none;
   }
 
   .newsletter__input::placeholder {
-    color: var(--text-light);
+    color: var(--text-muted);
   }
 
-  .newsletter__input:focus {
+  .newsletter__input:focus-visible {
     border-color: var(--red);
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
   }
 
   @media (max-width: 480px) {
