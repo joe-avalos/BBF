@@ -1,0 +1,219 @@
+---
+import { getLang, t } from '@/i18n/utils';
+
+const lang = getLang(Astro.url);
+---
+
+<footer class="footer" role="contentinfo">
+  <div class="footer__inner">
+    <div class="footer__grid">
+
+      <!-- Column 1: Brand -->
+      <div class="footer__col footer__col--brand">
+        <a href={`/${lang}/`} class="footer__logo-link" aria-label="Building Baja's Future — Home">
+          <img
+            src="/logo.svg"
+            alt="Building Baja's Future"
+            width="131"
+            height="50"
+            class="footer__logo"
+          />
+        </a>
+        <p class="footer__description">{t(lang, 'footer.description')}</p>
+      </div>
+
+      <!-- Column 2: Organization -->
+      <div class="footer__col">
+        <h3 class="footer__heading">{t(lang, 'footer.organization')}</h3>
+        <ul class="footer__links">
+          <li><a href={`/${lang}/our-story/`} class="footer__link">{t(lang, 'nav.ourStory')}</a></li>
+          <li><a href={`/${lang}/how-we-help/`} class="footer__link">{t(lang, 'nav.howWeHelp')}</a></li>
+          <li><a href={`/${lang}/scholars/`} class="footer__link">{t(lang, 'nav.scholars')}</a></li>
+          <li><a href={`/${lang}/friends-of-bbf/`} class="footer__link">{t(lang, 'nav.friendsOfBbf')}</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Get Involved -->
+      <div class="footer__col">
+        <h3 class="footer__heading">{t(lang, 'footer.getInvolved')}</h3>
+        <ul class="footer__links">
+          <li><a href={`/${lang}/how-to-donate/`} class="footer__link">{t(lang, 'nav.howToDonate')}</a></li>
+          <li><a href={`/${lang}/how-to-donate/`} class="footer__link">{t(lang, 'footer.sponsorScholar')}</a></li>
+          <li><a href={`/${lang}/how-to-apply/`} class="footer__link">{t(lang, 'nav.howToApply')}</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Contact -->
+      <div class="footer__col">
+        <h3 class="footer__heading">{t(lang, 'footer.contact')}</h3>
+        <address class="footer__address">
+          378 West Avenue 45<br />
+          Los Angeles, CA 90065
+        </address>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copy">{t(lang, 'footer.copy')}</p>
+      <p class="footer__nonprofit">{t(lang, 'footer.nonprofit')}</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+  }
+
+  .footer__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-lg) 0;
+  }
+
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+
+  /* Brand column */
+  .footer__col--brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .footer__logo-link {
+    display: inline-block;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .footer__logo {
+    display: block;
+    height: 50px;
+    width: auto;
+    filter: brightness(10);
+    opacity: 0.9;
+  }
+
+  .footer__description {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--footer-text);
+    opacity: 0.75;
+    margin: 0;
+    max-width: 28ch;
+  }
+
+  /* Nav columns */
+  .footer__heading {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--footer-text);
+    opacity: 0.5;
+    margin: 0 0 var(--space-md);
+  }
+
+  .footer__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .footer__link {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    color: var(--footer-text);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: color 0.2s var(--ease-out), opacity 0.2s var(--ease-out);
+  }
+
+  .footer__link:hover,
+  .footer__link:focus-visible {
+    color: #ffffff;
+    opacity: 1;
+  }
+
+  /* Address */
+  .footer__address {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-style: normal;
+    line-height: 1.6;
+    color: var(--footer-text);
+    opacity: 0.8;
+  }
+
+  /* Bottom bar */
+  .footer__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding: var(--space-lg) 0;
+  }
+
+  .footer__copy,
+  .footer__nonprofit {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    color: var(--footer-text);
+    opacity: 0.5;
+    margin: 0;
+  }
+
+  /* Tablet: 2-column grid */
+  @media (max-width: 960px) {
+    .footer__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+    }
+
+    .footer__col--brand {
+      grid-column: 1 / -1;
+    }
+
+    .footer__description {
+      max-width: 50ch;
+    }
+  }
+
+  /* Mobile: single column */
+  @media (max-width: 560px) {
+    .footer__grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+
+    .footer__col--brand {
+      grid-column: auto;
+    }
+
+    .footer__bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-xs);
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .footer__link {
+      transition: none;
+    }
+  }
+</style>
