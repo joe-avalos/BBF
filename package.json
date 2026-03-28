@@ -7,7 +7,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "copy:client": "node scripts/ui-to-copy.mjs",
+    "copy:ui": "node scripts/copy-to-ui.mjs"
   },
   "dependencies": {
     "astro": "^5.7.10",
