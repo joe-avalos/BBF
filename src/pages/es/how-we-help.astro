@@ -7,8 +7,11 @@ import CtaStrip from '@/components/CtaStrip.astro';
 
 const lang: Lang = 'es';
 
-const programs = [
+const pillar1Programs = [
   { num: '01', key: 'help.program1' },
+] as const;
+
+const pillar2Programs = [
   { num: '02', key: 'help.program2' },
   { num: '03', key: 'help.program3' },
   { num: '04', key: 'help.program4' },
@@ -16,8 +19,15 @@ const programs = [
   { num: '06', key: 'help.program6' },
   { num: '07', key: 'help.program7' },
   { num: '08', key: 'help.program8' },
+] as const;
+
+const pillar3Programs = [
   { num: '09', key: 'help.program9' },
   { num: '10', key: 'help.program10' },
+  { num: '11', key: 'help.program11' },
+  { num: '12', key: 'help.program12' },
+  { num: '13', key: 'help.program13' },
+  { num: '14', key: 'help.program14' },
 ] as const;
 ---
 
@@ -30,15 +40,67 @@ const programs = [
     subtitle={t(lang, 'help.subtitle')}
   />
 
-  <!-- Core Programs -->
+  <!-- Intro -->
+  <section class="section">
+    <div class="container">
+      <p class="help-free">{t(lang, 'help.free')}</p>
+    </div>
+  </section>
+
+  <!-- Pillar 1: Scholarship -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="t-label section-eyebrow">{t(lang, 'help.pillar1.eyebrow')}</div>
+        <h2 class="t-display t-display--sm">{t(lang, 'help.pillar1.title')}</h2>
+        <p class="section-subtitle">{t(lang, 'help.pillar1.text')}</p>
+      </div>
+      <ul class="program-list">
+        {pillar1Programs.map(({ num, key }) => (
+          <li class="program-item">
+            <div class="program-item__number">{num}</div>
+            <div>
+              <div class="program-item__title">{t(lang, `${key}.title` as any)}</div>
+              <div class="program-item__text">{t(lang, `${key}.text` as any)}</div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Pillar 2: Assistance -->
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <div class="t-label section-eyebrow">{t(lang, 'help.core.eyebrow')}</div>
-        <h2 class="t-display t-display--md">{t(lang, 'help.core.title')}</h2>
+        <div class="t-label section-eyebrow">{t(lang, 'help.pillar2.eyebrow')}</div>
+        <h2 class="t-display t-display--sm">{t(lang, 'help.pillar2.title')}</h2>
+        <p class="section-subtitle">{t(lang, 'help.pillar2.text')}</p>
       </div>
       <ul class="program-list">
-        {programs.map(({ num, key }) => (
+        {pillar2Programs.map(({ num, key }) => (
+          <li class="program-item">
+            <div class="program-item__number">{num}</div>
+            <div>
+              <div class="program-item__title">{t(lang, `${key}.title` as any)}</div>
+              <div class="program-item__text">{t(lang, `${key}.text` as any)}</div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Pillar 3: Social Development -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="t-label section-eyebrow">{t(lang, 'help.pillar3.eyebrow')}</div>
+        <h2 class="t-display t-display--sm">{t(lang, 'help.pillar3.title')}</h2>
+        <p class="section-subtitle">{t(lang, 'help.pillar3.text')}</p>
+      </div>
+      <ul class="program-list">
+        {pillar3Programs.map(({ num, key }) => (
           <li class="program-item">
             <div class="program-item__number">{num}</div>
             <div>
@@ -65,6 +127,19 @@ const programs = [
 
 <style>
   /* ═══════════════════════════════════════════════
+     INTRO
+     ═══════════════════════════════════════════════ */
+
+  .help-free {
+    text-align: center;
+    font-weight: 600;
+    color: var(--red);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ═══════════════════════════════════════════════
      SECTION HEADER
      ═══════════════════════════════════════════════ */
 
@@ -76,6 +151,13 @@ const programs = [
   .section-eyebrow {
     color: var(--red);
     margin-bottom: var(--space-md);
+  }
+
+  .section-subtitle {
+    max-width: 600px;
+    margin: var(--space-md) auto 0;
+    color: var(--text-muted);
+    line-height: 1.7;
   }
 
   /* ═══════════════════════════════════════════════
