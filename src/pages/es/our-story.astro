@@ -18,6 +18,28 @@ const lang: Lang = 'es';
     subtitle={t(lang, 'story.subtitle')}
   />
 
+  <!-- Purpose & Foundations -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="t-label section-eyebrow">{t(lang, 'story.purpose.eyebrow')}</div>
+      </div>
+      <div class="purpose-grid">
+        {[
+          { titleKey: 'story.purpose.objective.title', textKey: 'story.purpose.objective' },
+          { titleKey: 'story.purpose.mission.title', textKey: 'story.purpose.mission' },
+          { titleKey: 'story.purpose.vision.title', textKey: 'story.purpose.vision' },
+          { titleKey: 'story.purpose.goal.title', textKey: 'story.purpose.goal' },
+        ].map(({ titleKey, textKey }) => (
+          <div class="purpose-card">
+            <h3 class="purpose-card__title">{t(lang, titleKey as any)}</h3>
+            <p class="purpose-card__text">{t(lang, textKey as any)}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- Timeline -->
   <section class="section">
     <div class="container">
@@ -50,23 +72,41 @@ const lang: Lang = 'es';
     </div>
   </section>
 
-  <!-- Tree of Life -->
+  <!-- Three Pillars + Tree of Life -->
   <section class="section section--alt">
     <div class="container">
       <div class="section-header">
-        <div class="t-label section-eyebrow">{t(lang, 'story.tree.eyebrow')}</div>
-        <h2 class="t-display t-display--md">{t(lang, 'story.tree.title')}</h2>
+        <div class="t-label section-eyebrow">{t(lang, 'story.pillars.eyebrow')}</div>
+        <h2 class="t-display t-display--md">{t(lang, 'story.pillars.title')}</h2>
         <p class="section-subtitle">{t(lang, 'story.tree.subtitle')}</p>
       </div>
+
+      <!-- Three Pillar Cards -->
+      <div class="pillars-grid">
+        {[
+          { key: 'story.pillar1', icon: '\u{1F393}' },
+          { key: 'story.pillar2', icon: '\u{1F91D}' },
+          { key: 'story.pillar3', icon: '\u{1F331}' },
+        ].map(({ key, icon }) => (
+          <div class="pillar-card">
+            <div class="pillar-card__icon">{icon}</div>
+            <h3 class="pillar-card__title">{t(lang, `${key}.title` as any)}</h3>
+            <p class="pillar-card__text">{t(lang, `${key}.text` as any)}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Support Areas -->
+      <h3 class="support-areas-title">Áreas de apoyo</h3>
       <div class="tree-grid">
-        <TreeCard icon="💻" title={t(lang, 'story.tree.technology')} text={t(lang, 'story.tree.technologyText')} />
-        <TreeCard icon="💰" title={t(lang, 'story.tree.economic')} text={t(lang, 'story.tree.economicText')} />
-        <TreeCard icon="🎨" title={t(lang, 'story.tree.artistic')} text={t(lang, 'story.tree.artisticText')} />
-        <TreeCard icon="💙" title={t(lang, 'story.tree.emotional')} text={t(lang, 'story.tree.emotionalText')} />
-        <TreeCard icon="🏊" title={t(lang, 'story.tree.health')} text={t(lang, 'story.tree.healthText')} />
-        <TreeCard icon="🎶" title={t(lang, 'story.tree.cultural')} text={t(lang, 'story.tree.culturalText')} />
-        <TreeCard icon="👥" title={t(lang, 'story.tree.psychological')} text={t(lang, 'story.tree.psychologicalText')} />
-        <TreeCard icon="🎉" title={t(lang, 'story.tree.social')} text={t(lang, 'story.tree.socialText')} />
+        <TreeCard icon="\u{1F4BB}" title={t(lang, 'story.tree.technology')} text={t(lang, 'story.tree.technologyText')} />
+        <TreeCard icon="\u{1F4B0}" title={t(lang, 'story.tree.economic')} text={t(lang, 'story.tree.economicText')} />
+        <TreeCard icon="\u{1F3A8}" title={t(lang, 'story.tree.artistic')} text={t(lang, 'story.tree.artisticText')} />
+        <TreeCard icon="\u{1F499}" title={t(lang, 'story.tree.emotional')} text={t(lang, 'story.tree.emotionalText')} />
+        <TreeCard icon="\u{1F3CA}" title={t(lang, 'story.tree.health')} text={t(lang, 'story.tree.healthText')} />
+        <TreeCard icon="\u{1F3B6}" title={t(lang, 'story.tree.cultural')} text={t(lang, 'story.tree.culturalText')} />
+        <TreeCard icon="\u{1F465}" title={t(lang, 'story.tree.psychological')} text={t(lang, 'story.tree.psychologicalText')} />
+        <TreeCard icon="\u{1F389}" title={t(lang, 'story.tree.social')} text={t(lang, 'story.tree.socialText')} />
       </div>
     </div>
   </section>
@@ -91,6 +131,51 @@ const lang: Lang = 'es';
           />
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Board of Directors -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="t-label section-eyebrow">{t(lang, 'story.board.eyebrow')}</div>
+        <h2 class="t-display t-display--sm">{t(lang, 'story.board.title')}</h2>
+      </div>
+      <div class="team-grid">
+        {[
+          { nameKey: 'story.board.president.name', roleKey: 'story.board.president.role' },
+          { nameKey: 'story.board.secretary.name', roleKey: 'story.board.secretary.role' },
+          { nameKey: 'story.board.treasurer.name', roleKey: 'story.board.treasurer.role' },
+        ].map(({ nameKey, roleKey }) => (
+          <div class="team-card">
+            <h3 class="team-card__name">{t(lang, nameKey as any)}</h3>
+            <p class="team-card__role">{t(lang, roleKey as any)}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Staff -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="t-label section-eyebrow">{t(lang, 'story.staff.eyebrow')}</div>
+      </div>
+      <div class="team-grid team-grid--4">
+        {[
+          { nameKey: 'story.staff.mirna.name', roleKey: 'story.staff.mirna.role' },
+          { nameKey: 'story.staff.alicia.name', roleKey: 'story.staff.alicia.role' },
+          { nameKey: 'story.staff.amando.name', roleKey: 'story.staff.amando.role' },
+          { nameKey: 'story.staff.lucy.name', roleKey: 'story.staff.lucy.role' },
+        ].map(({ nameKey, roleKey }) => (
+          <div class="team-card">
+            <h3 class="team-card__name">{t(lang, nameKey as any)}</h3>
+            <p class="team-card__role">{t(lang, roleKey as any)}</p>
+          </div>
+        ))}
+      </div>
+      <p class="reports-note">{t(lang, 'story.reports.intro' as any)}</p>
     </div>
   </section>
 
@@ -119,6 +204,39 @@ const lang: Lang = 'es';
   }
 
   /* ═══════════════════════════════════════════════
+     PURPOSE & FOUNDATIONS
+     ═══════════════════════════════════════════════ */
+
+  .purpose-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .purpose-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+  }
+
+  .purpose-card__title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--red);
+    margin-bottom: var(--space-sm);
+  }
+
+  .purpose-card__text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  /* ═══════════════════════════════════════════════
      TIMELINE
      ═══════════════════════════════════════════════ */
 
@@ -137,6 +255,52 @@ const lang: Lang = 'es';
     bottom: 0;
     width: 1px;
     background: var(--border);
+  }
+
+  /* ═══════════════════════════════════════════════
+     THREE PILLARS
+     ═══════════════════════════════════════════════ */
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+  }
+
+  .pillar-card {
+    background: var(--bg-card);
+    border: 2px solid var(--red);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    text-align: center;
+  }
+
+  .pillar-card__icon {
+    font-size: 2rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .pillar-card__title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+  }
+
+  .pillar-card__text {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .support-areas-title {
+    text-align: center;
+    margin: var(--space-xl) 0 var(--space-lg);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
   }
 
   /* ═══════════════════════════════════════════════
@@ -187,6 +351,48 @@ const lang: Lang = 'es';
   }
 
   /* ═══════════════════════════════════════════════
+     BOARD & STAFF
+     ═══════════════════════════════════════════════ */
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .team-grid--4 {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 900px;
+  }
+
+  .team-card {
+    text-align: center;
+    padding: var(--space-lg);
+  }
+
+  .team-card__name {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+  }
+
+  .team-card__role {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  .reports-note {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: var(--space-xl);
+    font-style: italic;
+  }
+
+  /* ═══════════════════════════════════════════════
      RESPONSIVE
      ═══════════════════════════════════════════════ */
 
@@ -197,6 +403,10 @@ const lang: Lang = 'es';
   }
 
   @media (max-width: 768px) {
+    .pillars-grid {
+      grid-template-columns: 1fr;
+    }
+
     .tree-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: var(--space-md);
@@ -210,10 +420,26 @@ const lang: Lang = 'es';
     .logo-meaning__visual {
       order: -1;
     }
+
+    .team-grid,
+    .team-grid--4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .purpose-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   @media (max-width: 480px) {
     .tree-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .team-grid,
+    .team-grid--4 {
       grid-template-columns: 1fr;
     }
   }
