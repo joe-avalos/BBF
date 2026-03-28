@@ -445,7 +445,7 @@ export const ui = {
     // Our Story page
     'story.eyebrow': 'Desde 2006',
     'story.title': 'Nuestra historia',
-    'story.subtitle': 'Building Baja\'s Future (BBF) es una organización sin fines de lucro con sede en Baja California Sur, México, dedicada a la formación y educación de adolescentes y jóvenes de escasos recursos, brillantes y ambiciosos, durante su etapa universitaria.',
+    'story.subtitle': 'Building Baja\'s Future (BBF) es una asociación civil con sede en Baja California Sur, México, dedicada a la formación y educación de adolescentes y jóvenes de escasos recursos, brillantes y ambiciosos, durante su etapa universitaria.',
     'story.timeline.eyebrow': 'Nuestro camino',
     'story.timeline.title': 'De cuatro amigos a 348+ becarios',
     'story.2006.title': 'El comienzo',
