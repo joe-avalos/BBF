@@ -11,6 +11,17 @@ const requirements = [
   { key: 'apply.req2' },
   { key: 'apply.req3' },
   { key: 'apply.req4' },
+  { key: 'apply.req5' },
+] as const;
+
+const criteria = [
+  { num: '1', key: 'apply.criteria1' },
+  { num: '2', key: 'apply.criteria2' },
+  { num: '3', key: 'apply.criteria3' },
+  { num: '4', key: 'apply.criteria4' },
+  { num: '5', key: 'apply.criteria5' },
+  { num: '6', key: 'apply.criteria6' },
+  { num: '7', key: 'apply.criteria7' },
 ] as const;
 
 const steps = [
@@ -20,6 +31,27 @@ const steps = [
   { num: '4', key: 'apply.step4' },
   { num: '5', key: 'apply.step5' },
   { num: '6', key: 'apply.step6' },
+  { num: '7', key: 'apply.step7' },
+] as const;
+
+const process = [
+  { num: '1', key: 'apply.process1' },
+  { num: '2', key: 'apply.process2' },
+  { num: '3', key: 'apply.process3' },
+  { num: '4', key: 'apply.process4' },
+  { num: '5', key: 'apply.process5' },
+  { num: '6', key: 'apply.process6' },
+] as const;
+
+const obligations = [
+  'apply.obligation1',
+  'apply.obligation2',
+  'apply.obligation3',
+  'apply.obligation4',
+  'apply.obligation5',
+  'apply.obligation6',
+  'apply.obligation7',
+  'apply.obligation8',
 ] as const;
 ---
 
@@ -32,7 +64,31 @@ const steps = [
     subtitle={t(lang, 'apply.subtitle')}
   />
 
-  <!-- Eligibility -->
+  <!-- 1. Annual Call -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="t-label section-eyebrow">{t(lang, 'apply.call.eyebrow')}</div>
+      </div>
+      <div class="text-block">
+        <p>{t(lang, 'apply.call.text')}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Applicant Profile -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="t-label section-eyebrow">{t(lang, 'apply.profile.eyebrow')}</div>
+      </div>
+      <div class="text-block">
+        <p>{t(lang, 'apply.profile.text')}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Eligibility Requirements -->
   <section class="section">
     <div class="container">
       <div class="section-header">
@@ -53,8 +109,29 @@ const steps = [
     </div>
   </section>
 
-  <!-- Application Steps -->
+  <!-- 4. Selection Criteria -->
   <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="t-label section-eyebrow">{t(lang, 'apply.criteria.eyebrow')}</div>
+        <h2 class="t-display t-display--md">{t(lang, 'apply.criteria.title')}</h2>
+      </div>
+      <div class="criteria-list">
+        {criteria.map(({ num, key }) => (
+          <div class="program-item">
+            <div class="program-item__icon">{num}</div>
+            <div>
+              <div class="program-item__title">{t(lang, `${key}.title` as any)}</div>
+              <div class="program-item__text">{t(lang, `${key}.text` as any)}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Application Steps -->
+  <section class="section">
     <div class="container">
       <div class="section-header">
         <div class="t-label section-eyebrow">{t(lang, 'apply.steps.eyebrow')}</div>
@@ -71,13 +148,106 @@ const steps = [
       </div>
       <div class="download-cta">
         <a
-          href="https://buildingbajasfuture.org/wp-content/uploads/2025/05/Solicitud-BBF-version-3.pdf"
+          href="/docs/solicitud-bbf.pdf"
           target="_blank"
           rel="noopener"
           class="btn btn--donate"
         >
           {t(lang, 'apply.download')}
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Required Essays -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="t-label section-eyebrow">{t(lang, 'apply.essay.eyebrow')}</div>
+      </div>
+      <div class="text-block">
+        <p>{t(lang, 'apply.essay.intro')}</p>
+      </div>
+      <div class="essays-grid">
+        <div class="program-item">
+          <div class="program-item__icon">1</div>
+          <div>
+            <div class="program-item__title">{t(lang, 'apply.essay1.title')}</div>
+            <div class="program-item__text">{t(lang, 'apply.essay1.text')}</div>
+          </div>
+        </div>
+        <div class="program-item">
+          <div class="program-item__icon">2</div>
+          <div>
+            <div class="program-item__title">{t(lang, 'apply.essay2.title')}</div>
+            <div class="program-item__text">{t(lang, 'apply.essay2.text')}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. BBF Office -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="t-label section-eyebrow">{t(lang, 'apply.office.eyebrow')}</div>
+      </div>
+      <div class="office-card">
+        <div class="office-card__address">{t(lang, 'apply.office.address')}</div>
+        <div class="office-card__hours">{t(lang, 'apply.office.hours')}</div>
+        <div class="office-card__note">{t(lang, 'apply.office.note')}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Selection Process -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="t-label section-eyebrow">{t(lang, 'apply.process.eyebrow')}</div>
+        <h2 class="t-display t-display--md">{t(lang, 'apply.process.title')}</h2>
+      </div>
+      <div class="steps-grid">
+        {process.map(({ num, key }) => (
+          <div class="step-card">
+            <div class="step-card__number">{num}</div>
+            <div class="step-card__title">{t(lang, `${key}.title` as any)}</div>
+            <div class="step-card__text">{t(lang, `${key}.text` as any)}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Scholar Obligations -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="t-label section-eyebrow">{t(lang, 'apply.obligations.eyebrow')}</div>
+        <h2 class="t-display t-display--md">{t(lang, 'apply.obligations.title')}</h2>
+      </div>
+      <div class="obligations-list">
+        {obligations.map((key, i) => (
+          <div class="program-item">
+            <div class="program-item__icon">{i + 1}</div>
+            <div>
+              <div class="program-item__text">{t(lang, key as any)}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. If Accepted -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="t-label section-eyebrow">{t(lang, 'apply.accepted.eyebrow')}</div>
+      </div>
+      <div class="highlight-box">
+        <p>{t(lang, 'apply.accepted.text')}</p>
       </div>
     </div>
   </section>
@@ -99,7 +269,19 @@ const steps = [
     background: var(--bg-alt);
   }
 
-  .req-list {
+  .text-block {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .req-list,
+  .criteria-list,
+  .obligations-list,
+  .essays-grid {
     display: grid;
     gap: var(--space-lg);
     max-width: 800px;
@@ -139,6 +321,10 @@ const steps = [
     color: var(--text-muted);
     font-size: 0.9rem;
     line-height: 1.7;
+  }
+
+  .essays-grid {
+    margin-top: var(--space-xl);
   }
 
   .steps-grid {
@@ -183,5 +369,45 @@ const steps = [
   .download-cta {
     text-align: center;
     margin-top: var(--space-3xl);
+  }
+
+  .office-card {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--space-xl);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    text-align: center;
+  }
+
+  .office-card__address {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+  }
+
+  .office-card__hours {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .office-card__note {
+    font-weight: 600;
+    color: var(--red);
+    font-size: 0.95rem;
+  }
+
+  .highlight-box {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-2xl);
+    background: var(--bg-card);
+    border-left: 4px solid var(--red);
+    border-radius: var(--radius-md);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: center;
   }
 </style>
