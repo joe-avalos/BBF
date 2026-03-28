@@ -211,14 +211,19 @@ export const ui = {
     'blog.back': 'Back to blog',
 
     // Footer
-    'footer.description': "Building Baja's Future is a 501(c)(3) nonprofit helping young adults in Baja California Sur gain access to higher education since 2006.",
+    'footer.entityName': "Building Baja's Future",
+    'footer.address.line1': '378 West Avenue 45',
+    'footer.address.line2': 'Los Angeles, CA 90065',
+    'footer.email': 'info@buildingbajasfuture.org',
+    'footer.phone': '+52 624 355 4314',
+    'footer.legal': 'BBF USA is a 501(c)(3) nonprofit organization. Donations are tax-deductible.',
+    'footer.disclaimer': "Building Baja's Future operates through independent organizations in Mexico and the United States, each governed by its respective laws.",
     'footer.organization': 'Organization',
     'footer.getInvolved': 'Get Involved',
     'footer.contact': 'Contact',
     'footer.sponsorScholar': 'Sponsor a Scholar',
     'footer.newsUpdates': 'News & Updates',
     'footer.copy': '© 2026 Building Baja\'s Future. All rights reserved.',
-    'footer.nonprofit': '501(c)(3) Nonprofit Organization',
 
     // Theme & Language
     'theme.toggle': 'Toggle theme',
@@ -444,14 +449,19 @@ export const ui = {
     'blog.back': 'Volver al blog',
 
     // Footer
-    'footer.description': 'Building Baja\'s Future, A.C. es una asociación civil dedicada a impulsar la educación de jóvenes en Baja California Sur desde 2006.',
+    'footer.entityName': "Building Baja's Future, A.C.",
+    'footer.address.line1': 'Camino del Pedernal 160',
+    'footer.address.line2': 'Pedregal, Cabo San Lucas, B.C.S. C.P. 23453',
+    'footer.email': 'info@buildingbajasfuture.org',
+    'footer.phone': '+52 624 355 4314',
+    'footer.legal': 'BBF México es una Asociación Civil constituida conforme a las leyes mexicanas.',
+    'footer.disclaimer': 'Building Baja\'s Future opera a través de organizaciones independientes en México y Estados Unidos, cada una regida por las leyes de su respectivo país.',
     'footer.organization': 'Organización',
     'footer.getInvolved': 'Participa',
     'footer.contact': 'Contacto',
     'footer.sponsorScholar': 'Patrocina a un becario',
     'footer.newsUpdates': 'Noticias',
     'footer.copy': '© 2026 Building Baja\'s Future. Todos los derechos reservados.',
-    'footer.nonprofit': 'Asociación Civil — Donataria Autorizada',
 
     // Theme & Language
     'theme.toggle': 'Cambiar tema',
