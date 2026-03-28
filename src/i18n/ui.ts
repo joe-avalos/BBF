@@ -32,7 +32,7 @@ export const ui = {
     // Mission
     'mission.eyebrow': 'Our Mission',
     'mission.title': 'Become part of something big.',
-    'mission.text': "Building Baja's Future helps young adults gain an education to build a better future for themselves and their communities. We award scholarships covering 100% of college tuition, paired with mentorship, life skills, and a community that believes in every scholar's potential.",
+    'mission.text': "BBF rewards the talent and dedication of young people who deserve scholarships for their university education. Through comprehensive programs, students gain free access to tools that recognize, strengthen, and foster their talents, driving their personal and professional development.",
     'mission.link': 'Read our story',
 
     // Programs section (home)
@@ -179,7 +179,7 @@ export const ui = {
     // How to Donate page
     'donate.eyebrow': 'Support BBF',
     'donate.title': 'How to Donate',
-    'donate.subtitle': 'When you make a donation to BBF, you are helping to change lives. Your generosity allows us to award scholarships to deserving students.',
+    'donate.subtitle': "Thanks to the generosity of the many individuals and companies who have contributed to our program, we can serve many deserving students. We invite you to become a donor and leave your mark in Baja. Leave your mark in Baja!",
     'donate.online.title': 'Online via PayPal',
     'donate.online.text': 'Make a secure donation instantly through PayPal. Any amount makes a difference.',
     'donate.online.button': 'Donate Now',
@@ -189,18 +189,18 @@ export const ui = {
     'donate.check.payable': 'Make payable to BBF',
     'donate.sponsor.eyebrow': 'Go Further',
     'donate.sponsor.title': 'Sponsor a Scholar',
-    'donate.sponsor.text': "Cover full tuition and serve as a mentor for a BBF scholar. Your direct sponsorship creates a lasting, personal impact on a student's life.",
+    'donate.sponsor.text': "If you are interested in playing a more active role in the life of one of our scholars, consider becoming a sponsor. Contact us directly to learn how you can mentor and support a BBF scholar.",
     'donate.sponsor.button': 'Contact Us About Sponsorship',
 
     // Friends page
     'friends.eyebrow': 'Our Community',
     'friends.title': 'Friends of BBF',
-    'friends.subtitle': 'Thanks to the generosity of individuals and companies that have contributed to our program, we are able to serve many deserving students.',
+    'friends.subtitle': "Thanks to the generosity of the many individuals and companies who have contributed to our program, we can serve many deserving students. Leave your mark in Baja!",
     'friends.sponsors.eyebrow': 'Sponsors & Partners',
     'friends.sponsors.title': 'Those who make it possible',
     'friends.cta.eyebrow': 'Join Our Community',
     'friends.cta.title': 'Become a Friend of BBF',
-    'friends.cta.text': 'Your sponsorship covers full tuition and mentorship for a deserving student.',
+    'friends.cta.text': "BBF sponsors pay the full tuition of a student and act as mentors. Their participation is extremely significant for BBF scholars.",
     'friends.cta.button': 'Get Involved',
 
     // Blog page
@@ -270,7 +270,7 @@ export const ui = {
     // Mission
     'mission.eyebrow': 'Nuestra misión',
     'mission.title': 'Sé parte de algo grande.',
-    'mission.text': 'En Building Baja\'s Future creemos en el poder de la educación para transformar vidas. Otorgamos becas que cubren el 100% de la matrícula universitaria, acompañadas de mentoría, habilidades de vida y una comunidad que cree en el potencial de cada becario.',
+    'mission.text': 'BBF premia el talento y la dedicación de jóvenes merecedores de becas para su educación universitaria. A través de programas integrales, los estudiantes acceden gratuitamente a herramientas que reconocen, fortalecen y fomentan sus talentos, impulsando su desarrollo personal y profesional.',
     'mission.link': 'Conoce nuestra historia',
 
     // Programs section (home)
@@ -417,28 +417,28 @@ export const ui = {
     // How to Donate page
     'donate.eyebrow': 'Apoya a BBF',
     'donate.title': 'Cómo donar',
-    'donate.subtitle': 'Al realizar una donación a BBF, contribuyes directamente a impulsar el talento joven a través de la educación universitaria.',
+    'donate.subtitle': 'Gracias a la generosidad de las muchas personas y empresas que han contribuido a nuestro programa, podemos atender a muchos estudiantes merecedores. Te invitamos a convertirte en donante y dejar tu huella en Baja. ¡Deja tu huella en Baja!',
     'donate.online.title': 'En línea vía PayPal',
     'donate.online.text': 'Realiza una donación segura al instante a través de PayPal. Cualquier cantidad hace la diferencia.',
     'donate.online.button': 'Dona ahora',
     'donate.check.title': 'Donación por cheque',
-    'donate.check.text': 'Envía tu cheque a:',
+    'donate.check.text': 'Envía tu cheque a BBF USA:',
     'donate.check.address': '378 West Avenue 45\nLos Angeles, CA 90065',
     'donate.check.payable': 'A nombre de BBF',
     'donate.sponsor.eyebrow': 'Ve más allá',
     'donate.sponsor.title': 'Patrocina a un becario',
-    'donate.sponsor.text': 'Cubre la matrícula completa y sé mentor de un becario BBF. Tu patrocinio directo crea un impacto duradero y personal en la vida de un estudiante.',
+    'donate.sponsor.text': 'Si estás interesado en desempeñar un papel más activo en la vida de uno de nuestros becados, considera la posibilidad de ser patrocinador. Contáctanos directamente para aprender cómo puedes ser mentor y apoyar a un becado de BBF.',
     'donate.sponsor.button': 'Contáctanos sobre patrocinio',
 
     // Friends page
     'friends.eyebrow': 'Nuestra comunidad',
     'friends.title': 'Amigos de BBF',
-    'friends.subtitle': 'Gracias al apoyo de nuestros donantes, jóvenes comprometidos pueden acceder a la educación universitaria y construir un mejor futuro.',
+    'friends.subtitle': 'Gracias a la generosidad de las muchas personas y empresas que han contribuido a nuestro programa, podemos atender a muchos estudiantes merecedores. ¡Deja tu huella en Baja!',
     'friends.sponsors.eyebrow': 'Patrocinadores y aliados',
     'friends.sponsors.title': 'Quienes lo hacen posible',
     'friends.cta.eyebrow': 'Únete a nuestra comunidad',
     'friends.cta.title': 'Sé amigo de BBF',
-    'friends.cta.text': 'Tu patrocinio cubre matrícula completa y mentoría para un estudiante merecedor.',
+    'friends.cta.text': 'Los patrocinadores de BBF pagan la matrícula completa de un estudiante y actúan como mentores. Su participación es extremadamente significativa para los becados de BBF.',
     'friends.cta.button': 'Involúcrate',
 
     // Blog page
