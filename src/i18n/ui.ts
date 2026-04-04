@@ -368,6 +368,19 @@ export const ui = {
     // BCS Callout
     'bcs.callout': '[PENDING CLIENT COPY — BCS eligibility, donor-facing framing]',
 
+    // ES Home page
+    'home.es.intro': '[PENDING CLIENT COPY — brief intro to BBF for applicants]',
+    'home.es.whatIsBbf': '[PENDING CLIENT COPY — what is BBF, asociación civil, scholarships]',
+    'home.es.benefits.tuition': 'Tuition',
+    'home.es.benefits.books': 'Books & Supplies',
+    'home.es.benefits.mentorship': 'Mentorship',
+    'home.es.benefits.support': 'Comprehensive Support',
+    'home.es.steps.title': 'How to Apply',
+    'home.es.steps.step1': 'Review Requirements',
+    'home.es.steps.step2': 'Submit Application',
+    'home.es.steps.step3': 'Interview',
+    'home.es.applyCtaText': '[PENDING CLIENT COPY — apply CTA]',
+
     // Meta
     'meta.title': "Building Baja's Future — Scholarships for Baja California Sur",
     'meta.description': "Building Baja's Future (BBF) is a nonprofit organization awarding full college scholarships to deserving students in Baja California Sur, Mexico.",
@@ -740,6 +753,19 @@ export const ui = {
 
     // BCS Callout
     'bcs.callout': '[PENDING CLIENT COPY — BCS eligibility, applicant-facing, prominent]',
+
+    // ES Home page
+    'home.es.intro': '[PENDING CLIENT COPY — introducción breve a BBF para aplicantes]',
+    'home.es.whatIsBbf': '[PENDING CLIENT COPY — qué es BBF, asociación civil, becas]',
+    'home.es.benefits.tuition': 'Colegiatura',
+    'home.es.benefits.books': 'Libros y Materiales',
+    'home.es.benefits.mentorship': 'Mentoría',
+    'home.es.benefits.support': 'Apoyo Integral',
+    'home.es.steps.title': 'Cómo Obtener la Beca',
+    'home.es.steps.step1': 'Revisa los Requisitos',
+    'home.es.steps.step2': 'Envía tu Solicitud',
+    'home.es.steps.step3': 'Entrevista',
+    'home.es.applyCtaText': '[PENDING CLIENT COPY — texto CTA para aplicar]',
 
     // Meta
     'meta.title': 'Building Baja\'s Future — Becas para Baja California Sur',
