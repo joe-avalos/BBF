@@ -385,6 +385,15 @@ export const ui = {
     'home.es.steps.step3': 'Interview',
     'home.es.applyCtaText': '[PENDING CLIENT COPY — apply CTA]',
 
+    // Your Impact page
+    'impact.title': 'Your Impact',
+    'impact.subtitle': '[PENDING CLIENT COPY — transparency, where your money goes]',
+    'impact.section1.title': '[PENDING CLIENT COPY]',
+    'impact.section1.text': '[PENDING CLIENT COPY]',
+    'impact.section2.title': '[PENDING CLIENT COPY]',
+    'impact.section2.text': '[PENDING CLIENT COPY]',
+    'impact.ctaText': '[PENDING CLIENT COPY — donate CTA]',
+
     // Meta
     'meta.title': "Building Baja's Future — Scholarships for Baja California Sur",
     'meta.description': "Building Baja's Future (BBF) is a nonprofit organization awarding full college scholarships to deserving students in Baja California Sur, Mexico.",
@@ -774,6 +783,15 @@ export const ui = {
     'home.es.steps.step2': 'Envía tu Solicitud',
     'home.es.steps.step3': 'Entrevista',
     'home.es.applyCtaText': '[PENDING CLIENT COPY — texto CTA para aplicar]',
+
+    // Your Impact page
+    'impact.title': 'Tu Impacto',
+    'impact.subtitle': '[PENDING CLIENT COPY]',
+    'impact.section1.title': '[PENDING CLIENT COPY]',
+    'impact.section1.text': '[PENDING CLIENT COPY]',
+    'impact.section2.title': '[PENDING CLIENT COPY]',
+    'impact.section2.text': '[PENDING CLIENT COPY]',
+    'impact.ctaText': '[PENDING CLIENT COPY]',
 
     // Meta
     'meta.title': 'Building Baja\'s Future — Becas para Baja California Sur',

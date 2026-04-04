@@ -1,0 +1,43 @@
+---
+import Page from '@/layouts/Page.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import CtaStrip from '@/components/CtaStrip.astro';
+import { t } from '@/i18n/utils';
+
+const lang = 'en' as const;
+---
+
+<Page title={t(lang, 'impact.title')}>
+  <div class="container">
+    <PageHeader eyebrow="" title={t(lang, 'impact.title')} subtitle={t(lang, 'impact.subtitle')} />
+
+    <section class="impact-section">
+      <h2>{t(lang, 'impact.section1.title')}</h2>
+      <p>{t(lang, 'impact.section1.text')}</p>
+    </section>
+
+    <section class="impact-section">
+      <h2>{t(lang, 'impact.section2.title')}</h2>
+      <p>{t(lang, 'impact.section2.text')}</p>
+    </section>
+  </div>
+
+  <CtaStrip
+    eyebrow=""
+    title={t(lang, 'impact.ctaText')}
+    text=""
+    buttonText={t(lang, 'cta.button')}
+    buttonHref="https://www.paypal.com/donate?token=m4ld99YqY75fhl96dRcSwlq_eay6RuFri7OTfucgIWOJZIlrQ7FZaFYVka9sdwSyguC9cqmvuEZrv_uS"
+    trustText={t(lang, 'cta.trust')}
+  />
+</Page>
+
+<style>
+  .impact-section {
+    padding: var(--space-lg, 1.5rem) 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .impact-section:last-of-type { border-bottom: none; }
+  .impact-section h2 { font-family: var(--font-display); margin-bottom: 0.75rem; }
+  .impact-section p { color: var(--text-muted); line-height: 1.7; }
+</style>
