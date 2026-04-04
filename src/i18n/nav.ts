@@ -18,19 +18,20 @@ export const navLinks: Record<'en' | 'es', NavItem[]> = {
   ],
 };
 
-/** All pages across both languages, for the footer sitemap */
+/** All pages across both languages, for the footer sitemap.
+ *  Order must match between EN and ES so rows align visually. */
 export const allPages: Record<'en' | 'es', NavItem[]> = {
   en: [
     { key: 'nav.home', href: '/en/' },
     { key: 'nav.ourStory', href: '/en/our-story/' },
     { key: 'nav.howWeHelp', href: '/en/how-we-help/' },
     { key: 'nav.scholars', href: '/en/scholars/' },
-    { key: 'nav.yourImpact', href: '/en/your-impact/' },
-    { key: 'nav.howToDonate', href: '/en/how-to-donate/' },
-    { key: 'nav.friendsOfBbf', href: '/en/friends-of-bbf/' },
-    { key: 'nav.newsletter', href: '/en/newsletter/' },
     { key: 'nav.howToApply', href: '/en/how-to-apply/' },
+    { key: 'nav.howToDonate', href: '/en/how-to-donate/' },
+    { key: 'nav.yourImpact', href: '/en/your-impact/' },
+    { key: 'nav.friendsOfBbf', href: '/en/friends-of-bbf/' },
     { key: 'nav.studentResources', href: '/en/student-resources/' },
+    { key: 'nav.newsletter', href: '/en/newsletter/' },
   ],
   es: [
     { key: 'nav.home', href: '/es/' },
@@ -38,11 +39,11 @@ export const allPages: Record<'en' | 'es', NavItem[]> = {
     { key: 'nav.howWeHelp', href: '/es/how-we-help/' },
     { key: 'nav.scholars', href: '/es/scholars/' },
     { key: 'nav.howToApply', href: '/es/how-to-apply/' },
+    { key: 'nav.howToDonate', href: '/es/how-to-donate/' },
+    { key: 'nav.yourImpact', href: '/es/your-impact/' },
+    { key: 'nav.friendsOfBbf', href: '/es/friends-of-bbf/' },
     { key: 'nav.studentResources', href: '/es/student-resources/' },
     { key: 'nav.newsletter', href: '/es/newsletter/' },
-    { key: 'nav.howToDonate', href: '/es/how-to-donate/' },
-    { key: 'nav.friendsOfBbf', href: '/es/friends-of-bbf/' },
-    { key: 'nav.yourImpact', href: '/es/your-impact/' },
   ],
 };
 

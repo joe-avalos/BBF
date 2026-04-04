@@ -8,9 +8,6 @@ const otherLang = lang === 'en' ? 'es' : 'en';
 const currentLangPages = allPages[lang];
 const otherLangPages = allPages[otherLang];
 
-// TODO: Revisit with client — Jacinto questioned whether to publish the dual-entity
-// disclaimer due to SAT concerns. Set to false to hide it.
-const showDisclaimer = true;
 ---
 
 <footer class="footer" role="contentinfo">
@@ -63,10 +60,27 @@ const showDisclaimer = true;
 
     <div class="footer__bottom">
       <p class="footer__copy">{t(lang, 'footer.copy')}</p>
-      {showDisclaimer && <p class="footer__disclaimer">{t(lang, 'footer.disclaimer')}</p>}
+      <div class="footer__disclaimer-wrap" id="disclaimerWrap">
+        <p class="footer__disclaimer">{t(lang, 'footer.disclaimer')}</p>
+        <button class="footer__disclaimer-toggle" id="disclaimerToggle" type="button">
+          {lang === 'en' ? '✕ Hide' : '✕ Ocultar'}
+        </button>
+      </div>
     </div>
   </div>
 </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const wrap = document.getElementById('disclaimerWrap');
+    const btn = document.getElementById('disclaimerToggle');
+    if (!wrap || !btn) return;
+
+    btn.addEventListener('click', () => {
+      wrap.hidden = !wrap.hidden;
+    });
+  });
+</script>
 
 <style>
   .footer {
@@ -200,6 +214,28 @@ const showDisclaimer = true;
     color: var(--footer-text);
     opacity: 0.5;
     margin: 0;
+  }
+
+  .footer__disclaimer-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .footer__disclaimer-toggle {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+    color: var(--footer-text);
+    opacity: 0.4;
+    font-size: 0.7rem;
+    padding: 0.15rem 0.4rem;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .footer__disclaimer-toggle:hover {
+    opacity: 0.7;
   }
 
   /* Tablet: 2-column grid */
