@@ -72,12 +72,14 @@ const otherLangPages = allPages[otherLang];
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const wrap = document.getElementById('disclaimerWrap');
-    const btn = document.getElementById('disclaimerToggle');
-    if (!wrap || !btn) return;
+    const text = document.querySelector('.footer__disclaimer') as HTMLElement;
+    const btn = document.getElementById('disclaimerToggle') as HTMLButtonElement;
+    if (!text || !btn) return;
 
     btn.addEventListener('click', () => {
-      wrap.hidden = !wrap.hidden;
+      const isHidden = text.style.display === 'none';
+      text.style.display = isHidden ? '' : 'none';
+      btn.textContent = isHidden ? '✕ Hide' : '⊕ Show';
     });
   });
 </script>
