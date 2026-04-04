@@ -394,7 +394,6 @@ export const ui = {
     'impact.section2.text': '[PENDING CLIENT COPY]',
     'impact.ctaText': '[PENDING CLIENT COPY — donate CTA]',
 
-
     // Student Resources page
     'resources.title': 'Student Resources',
     'resources.subtitle': '[PENDING CLIENT COPY]',
@@ -404,6 +403,17 @@ export const ui = {
     'resources.support.text': '[PENDING CLIENT COPY]',
     'resources.faq.title': '[PENDING CLIENT COPY — FAQ]',
     'resources.faq.text': '[PENDING CLIENT COPY]',
+
+    // Newsletter
+    'newsletter.pageTitle': 'Newsletter',
+    'newsletter.latest': 'Latest Newsletter',
+    'newsletter.archive': 'Previous Newsletters',
+    'newsletter.subscribe.title': 'Subscribe',
+    'newsletter.subscribe.text': 'Get our quarterly newsletter delivered to your inbox.',
+    'newsletter.subscribe.email': 'Email address',
+    'newsletter.subscribe.button': 'Subscribe',
+    'newsletter.download': 'Download PDF',
+    'newsletter.noNewsletters': 'No newsletters available yet. Subscribe to be notified when the first one is published.',
 
     // Meta
     'meta.title': "Building Baja's Future — Scholarships for Baja California Sur",
@@ -814,6 +824,17 @@ export const ui = {
     'resources.support.text': '[PENDING CLIENT COPY]',
     'resources.faq.title': '[PENDING CLIENT COPY — FAQ]',
     'resources.faq.text': '[PENDING CLIENT COPY]',
+
+    // Newsletter
+    'newsletter.pageTitle': 'Boletín',
+    'newsletter.latest': 'Último Boletín',
+    'newsletter.archive': 'Boletines Anteriores',
+    'newsletter.subscribe.title': 'Suscríbete',
+    'newsletter.subscribe.text': 'Recibe nuestro boletín trimestral en tu correo.',
+    'newsletter.subscribe.email': 'Correo electrónico',
+    'newsletter.subscribe.button': 'Suscribirse',
+    'newsletter.download': 'Descargar PDF',
+    'newsletter.noNewsletters': 'Aún no hay boletines disponibles. Suscríbete para recibir una notificación cuando se publique el primero.',
 
     // Meta
     'meta.title': 'Building Baja\'s Future — Becas para Baja California Sur',

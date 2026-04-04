@@ -1,0 +1,25 @@
+---
+import { getLang, t } from '@/i18n/utils';
+const lang = getLang(Astro.url);
+const MAILCHIMP_ACTION = import.meta.env.PUBLIC_MAILCHIMP_ACTION ?? '#';
+---
+
+<div class="subscribe-form">
+  <h3>{t(lang, 'newsletter.subscribe.title')}</h3>
+  <p>{t(lang, 'newsletter.subscribe.text')}</p>
+  <form action={MAILCHIMP_ACTION} method="post" target="_blank" novalidate>
+    <div class="form-row">
+      <input type="email" name="EMAIL" placeholder={t(lang, 'newsletter.subscribe.email')} required aria-label={t(lang, 'newsletter.subscribe.email')} />
+      <button type="submit" class="btn btn--primary">{t(lang, 'newsletter.subscribe.button')}</button>
+    </div>
+  </form>
+</div>
+
+<style>
+  .subscribe-form { padding: 2rem; background: var(--bg-alt); border-radius: var(--radius, 4px); }
+  .subscribe-form h3 { font-family: var(--font-display); margin-bottom: 0.5rem; }
+  .subscribe-form p { color: var(--text-muted); margin-bottom: 1.25rem; }
+  .form-row { display: flex; gap: 0.75rem; }
+  .form-row input { flex: 1; padding: 0.625rem 1rem; border: 1px solid var(--border); border-radius: var(--radius, 4px); background: var(--bg); color: var(--text); font-size: 1rem; }
+  @media (max-width: 480px) { .form-row { flex-direction: column; } }
+</style>
