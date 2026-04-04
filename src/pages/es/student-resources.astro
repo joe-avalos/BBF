@@ -1,0 +1,41 @@
+---
+import Page from '@/layouts/Page.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import BcsCallout from '@/components/BcsCallout.astro';
+import { t } from '@/i18n/utils';
+
+const lang = 'es' as const;
+---
+
+<Page title={t(lang, 'resources.title')}>
+  <div class="container">
+    <PageHeader eyebrow="" title={t(lang, 'resources.title')} subtitle={t(lang, 'resources.subtitle')} />
+
+    <BcsCallout variant="prominent" />
+
+    <section class="resource-section">
+      <h2>{t(lang, 'resources.obligations.title')}</h2>
+      <p>{t(lang, 'resources.obligations.text')}</p>
+    </section>
+
+    <section class="resource-section">
+      <h2>{t(lang, 'resources.support.title')}</h2>
+      <p>{t(lang, 'resources.support.text')}</p>
+    </section>
+
+    <section class="resource-section">
+      <h2>{t(lang, 'resources.faq.title')}</h2>
+      <p>{t(lang, 'resources.faq.text')}</p>
+    </section>
+  </div>
+</Page>
+
+<style>
+  .resource-section {
+    padding: var(--space-lg, 1.5rem) 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .resource-section:last-of-type { border-bottom: none; }
+  .resource-section h2 { font-family: var(--font-display); margin-bottom: 0.75rem; }
+  .resource-section p { color: var(--text-muted); line-height: 1.7; }
+</style>

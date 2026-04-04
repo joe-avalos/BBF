@@ -394,6 +394,17 @@ export const ui = {
     'impact.section2.text': '[PENDING CLIENT COPY]',
     'impact.ctaText': '[PENDING CLIENT COPY — donate CTA]',
 
+
+    // Student Resources page
+    'resources.title': 'Student Resources',
+    'resources.subtitle': '[PENDING CLIENT COPY]',
+    'resources.obligations.title': '[PENDING CLIENT COPY — scholar obligations]',
+    'resources.obligations.text': '[PENDING CLIENT COPY]',
+    'resources.support.title': '[PENDING CLIENT COPY — support services]',
+    'resources.support.text': '[PENDING CLIENT COPY]',
+    'resources.faq.title': '[PENDING CLIENT COPY — FAQ]',
+    'resources.faq.text': '[PENDING CLIENT COPY]',
+
     // Meta
     'meta.title': "Building Baja's Future — Scholarships for Baja California Sur",
     'meta.description': "Building Baja's Future (BBF) is a nonprofit organization awarding full college scholarships to deserving students in Baja California Sur, Mexico.",
@@ -792,6 +803,17 @@ export const ui = {
     'impact.section2.title': '[PENDING CLIENT COPY]',
     'impact.section2.text': '[PENDING CLIENT COPY]',
     'impact.ctaText': '[PENDING CLIENT COPY]',
+
+
+    // Student Resources page
+    'resources.title': 'Recursos para Becarios',
+    'resources.subtitle': '[PENDING CLIENT COPY — what scholars need to know]',
+    'resources.obligations.title': '[PENDING CLIENT COPY — scholar obligations]',
+    'resources.obligations.text': '[PENDING CLIENT COPY]',
+    'resources.support.title': '[PENDING CLIENT COPY — support services]',
+    'resources.support.text': '[PENDING CLIENT COPY]',
+    'resources.faq.title': '[PENDING CLIENT COPY — FAQ]',
+    'resources.faq.text': '[PENDING CLIENT COPY]',
 
     // Meta
     'meta.title': 'Building Baja\'s Future — Becas para Baja California Sur',
