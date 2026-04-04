@@ -30,4 +30,4 @@ Uploaded the wrong file? Just drop the correct PDF into the folder. The old one 
 **Only ONE person should upload newsletters.** If two people upload at the same time, one file will replace the other. Decide who is responsible for uploading and stick with that person.
 
 ## Questions?
-Contact Jose.
+Contact [Bolo](mailto:boloyde@gmail.com).
