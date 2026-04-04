@@ -2,19 +2,23 @@
 interface Props {
   name: string;
   photo: string;
-  detail: string;
-  university?: string;
-  degree?: string;
+  university: string;
+  degree: string;
+  status: string;
 }
 
-const { name, photo, detail, university, degree } = Astro.props;
+const { name, photo, university, degree, status } = Astro.props;
 ---
 
-<div class="scholar-card" data-university={university} data-degree={degree}>
-  <img src={photo} alt={name} class="scholar-card__img" loading="lazy" />
-  <div class="scholar-card__info">
-    <div class="scholar-card__name">{name}</div>
-    <div class="scholar-card__detail">{detail}</div>
+<div class="scholar-card" data-university={university} data-degree={degree} data-status={status}>
+  <div class:list={['scholar-photo', { 'scholar-photo--default': !photo }]}>
+    <img src={photo || '/scholars/default-thumbnail.svg'} alt={name} width="300" height="300" loading="lazy" />
+  </div>
+  <div class="scholar-info">
+    <h3 class="scholar-name">{name}</h3>
+    <p class="scholar-university">{university}</p>
+    <p class="scholar-degree">{degree}</p>
+    <span class:list={['scholar-status', `scholar-status--${status.toLowerCase()}`]}>{status}</span>
   </div>
 </div>
 
@@ -32,26 +36,84 @@ const { name, photo, detail, university, degree } = Astro.props;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   }
 
-  .scholar-card__img {
+  /* ═══════════════════════════════════════════════
+     PHOTO
+     ═══════════════════════════════════════════════ */
+
+  .scholar-photo {
     width: 100%;
-    aspect-ratio: 3/4;
-    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: var(--bg-alt);
   }
 
-  .scholar-card__info {
+  .scholar-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .scholar-photo--default img {
+    object-fit: contain;
+    padding: var(--space-lg);
+    opacity: 0.4;
+  }
+
+  /* ═══════════════════════════════════════════════
+     INFO
+     ═══════════════════════════════════════════════ */
+
+  .scholar-info {
     padding: var(--space-md);
   }
 
-  .scholar-card__name {
+  .scholar-name {
+    font-size: 0.95rem;
     font-weight: 600;
-    font-size: 0.9rem;
-    margin-bottom: 2px;
+    margin: 0 0 4px;
+    line-height: 1.3;
   }
 
-  .scholar-card__detail {
+  .scholar-university {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin: 0 0 2px;
+  }
+
+  .scholar-degree {
     font-size: 0.75rem;
     color: var(--text-muted);
+    margin: 0 0 var(--space-sm);
   }
+
+  /* ═══════════════════════════════════════════════
+     STATUS BADGE
+     ═══════════════════════════════════════════════ */
+
+  .scholar-status {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+
+  .scholar-status--active {
+    background: color-mix(in srgb, var(--red) 12%, transparent);
+    color: var(--red);
+  }
+
+  .scholar-status--graduated {
+    background: color-mix(in srgb, var(--text-muted) 12%, transparent);
+    color: var(--text-muted);
+  }
+
+  /* ═══════════════════════════════════════════════
+     REDUCED MOTION
+     ═══════════════════════════════════════════════ */
 
   @media (prefers-reduced-motion: reduce) {
     .scholar-card {

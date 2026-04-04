@@ -4,6 +4,7 @@ import { t } from '@/i18n/utils';
 import type { Lang } from '@/i18n/utils';
 import StatCounter from '@/components/StatCounter.astro';
 import BcsCallout from '@/components/BcsCallout.astro';
+import stats from '../../data/stats.json';
 
 const lang: Lang = 'es';
 ---
@@ -23,9 +24,9 @@ const lang: Lang = 'es';
   <section class="section stats-section">
     <div class="container">
       <div class="stats-grid">
-        <StatCounter target={650} label={t(lang, 'stats.scholars')} suffix="+" />
-        <StatCounter target={20} label={t(lang, 'stats.years')} />
-        <StatCounter target={200} label={t(lang, 'stats.graduates')} />
+        <StatCounter target={stats.scholars_count} label={t(lang, 'stats.scholars')} suffix="+" />
+        <StatCounter target={stats.years_of_impact} label={t(lang, 'stats.years')} />
+        <StatCounter target={stats.graduates_count} label={t(lang, 'stats.graduates')} />
       </div>
     </div>
   </section>

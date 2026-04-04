@@ -8,6 +8,7 @@ import CtaStrip from '@/components/CtaStrip.astro';
 import ImpactQuote from '@/components/ImpactQuote.astro';
 import Newsletter from '@/components/Newsletter.astro';
 import DonateButton from '@/components/DonateButton.astro';
+import stats from '../../data/stats.json';
 
 const lang: Lang = 'en';
 ---
@@ -53,9 +54,9 @@ const lang: Lang = 'en';
   <section class="section stats-section">
     <div class="container">
       <div class="stats">
-        <StatCounter target={650} label={t(lang, 'stats.scholars')} suffix="+" />
-        <StatCounter target={20} label={t(lang, 'stats.years')} />
-        <StatCounter target={200} label={t(lang, 'stats.graduates')} />
+        <StatCounter target={stats.scholars_count} label={t(lang, 'stats.scholars')} suffix="+" />
+        <StatCounter target={stats.years_of_impact} label={t(lang, 'stats.years')} />
+        <StatCounter target={stats.graduates_count} label={t(lang, 'stats.graduates')} />
       </div>
     </div>
   </section>
