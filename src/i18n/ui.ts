@@ -9,6 +9,9 @@ export const ui = {
     'nav.howToDonate': 'How to Donate',
     'nav.friendsOfBbf': 'Friends of BBF',
     'nav.donate': 'Donate',
+    'nav.newsletter': 'Newsletter',
+    'nav.yourImpact': 'Your Impact',
+    'nav.studentResources': 'Student Resources',
 
     // Hero
     'hero.eyebrow': "Building Baja's Future",
@@ -375,6 +378,9 @@ export const ui = {
     'nav.howToDonate': 'Cómo apoyar',
     'nav.friendsOfBbf': 'Amigos de BBF',
     'nav.donate': 'Donar',
+    'nav.newsletter': 'Boletín',
+    'nav.yourImpact': 'Tu Impacto',
+    'nav.studentResources': 'Recursos para Becarios',
 
     // Hero
     'hero.eyebrow': "Building Baja's Future",
