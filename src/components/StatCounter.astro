@@ -1,43 +1,42 @@
 ---
 interface Props {
-  number: string;
+  target: number;
   label: string;
-  subLabel?: string;
+  suffix?: string;
 }
 
-const { number, label, subLabel } = Astro.props;
+const { target, label, suffix = '' } = Astro.props;
 ---
 
-<div class="stat">
-  <div class="stat__number">{number}</div>
-  <div class="stat__label">{label}</div>
-  {subLabel && <div class="stat__sublabel">{subLabel}</div>}
+<div class="stat-counter" data-target={target} data-suffix={suffix}>
+  <span class="stat-number" aria-label={`${target}${suffix}`}>
+    <span class="stat-display">0</span>{suffix && <span class="stat-suffix">{suffix}</span>}
+  </span>
+  <span class="stat-label">{label}</span>
 </div>
 
 <style>
-  .stat {
+  .stat-counter {
     text-align: center;
-    padding: var(--space-xl) var(--space-lg);
-    position: relative;
   }
 
-  .stat__number {
+  .stat-number {
+    display: block;
     font-family: var(--font-display);
-    font-size: clamp(3rem, 5vw, 4.5rem);
-    font-weight: 600;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
     color: var(--red);
-    line-height: 1;
-    margin-bottom: var(--space-sm);
+    line-height: 1.1;
   }
 
-  .stat__label {
+  .stat-suffix {
+    font-size: 0.6em;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: var(--text-sm, 0.875rem);
     color: var(--text-muted);
-    font-size: 0.9rem;
-  }
-
-  .stat__sublabel {
-    color: var(--text-light);
-    font-size: 0.75rem;
-    margin-top: 4px;
+    margin-top: 0.25rem;
   }
 </style>
