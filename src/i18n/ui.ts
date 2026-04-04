@@ -369,6 +369,17 @@ export const ui = {
     // Motto
     'motto': 'Leave your mark',
 
+    // Newsletter
+    'newsletter.pageTitle': 'Newsletter',
+    'newsletter.latest': 'Latest Newsletter',
+    'newsletter.archive': 'Previous Newsletters',
+    'newsletter.subscribe.title': 'Subscribe',
+    'newsletter.subscribe.text': 'Get our quarterly newsletter delivered to your inbox.',
+    'newsletter.subscribe.email': 'Email address',
+    'newsletter.subscribe.button': 'Subscribe',
+    'newsletter.download': 'Download PDF',
+    'newsletter.noNewsletters': 'No newsletters available yet. Subscribe to be notified when the first one is published.',
+
     // Meta
     'meta.title': "Building Baja's Future — Scholarships for Baja California Sur",
     'meta.description': "Building Baja's Future (BBF) is a nonprofit organization awarding full college scholarships to deserving students in Baja California Sur, Mexico.",
@@ -742,6 +753,17 @@ export const ui = {
 
     // Motto
     'motto': 'Deja tu huella',
+
+    // Newsletter
+    'newsletter.pageTitle': 'Boletín',
+    'newsletter.latest': 'Último Boletín',
+    'newsletter.archive': 'Boletines Anteriores',
+    'newsletter.subscribe.title': 'Suscríbete',
+    'newsletter.subscribe.text': 'Recibe nuestro boletín trimestral en tu correo.',
+    'newsletter.subscribe.email': 'Correo electrónico',
+    'newsletter.subscribe.button': 'Suscribirse',
+    'newsletter.download': 'Descargar PDF',
+    'newsletter.noNewsletters': 'Aún no hay boletines disponibles. Suscríbete para recibir una notificación cuando se publique el primero.',
 
     // Meta
     'meta.title': 'Building Baja\'s Future — Becas para Baja California Sur',

@@ -1,0 +1,39 @@
+---
+import { getLang, t } from '@/i18n/utils';
+
+interface Newsletter { title: string; date: string; url: string; }
+interface Props { newsletters: Newsletter[]; }
+
+const { newsletters } = Astro.props;
+const lang = getLang(Astro.url);
+---
+
+{newsletters.length === 0 ? (
+  <p class="no-newsletters">{t(lang, 'newsletter.noNewsletters')}</p>
+) : (
+  <div class="archive">
+    <h3>{t(lang, 'newsletter.archive')}</h3>
+    <ul class="archive-list">
+      {newsletters.map(nl => (
+        <li>
+          <a href={nl.url} target="_blank" rel="noopener">
+            <span class="nl-title">{nl.title}</span>
+            <span class="nl-date">{new Date(nl.date).toLocaleDateString(lang === 'es' ? 'es-MX' : 'en-US', { year: 'numeric', month: 'long' })}</span>
+            <span class="nl-download">{t(lang, 'newsletter.download')} ↓</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+
+<style>
+  .archive-list { list-style: none; padding: 0; }
+  .archive-list li { border-bottom: 1px solid var(--border); }
+  .archive-list a { display: flex; align-items: center; padding: 1rem 0; text-decoration: none; color: var(--text); gap: 1rem; }
+  .archive-list a:hover { color: var(--red); }
+  .nl-title { flex: 1; font-weight: 500; }
+  .nl-date { color: var(--text-muted); font-size: 0.875rem; }
+  .nl-download { color: var(--red); font-size: 0.875rem; white-space: nowrap; }
+  .no-newsletters { color: var(--text-muted); padding: 2rem 0; }
+</style>

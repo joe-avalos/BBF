@@ -1,0 +1,29 @@
+---
+import Page from '@/layouts/Page.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import SubscribeForm from '@/components/SubscribeForm.astro';
+import NewsletterArchive from '@/components/NewsletterArchive.astro';
+import { t } from '@/i18n/utils';
+
+const lang = 'es' as const;
+const newsletters: { title: string; date: string; url: string }[] = [];
+---
+
+<Page title={t(lang, 'newsletter.pageTitle')}>
+  <div class="container">
+    <PageHeader eyebrow="" title={t(lang, 'newsletter.pageTitle')} />
+    <div class="newsletter-layout">
+      <section class="newsletter-main">
+        <NewsletterArchive newsletters={newsletters} />
+      </section>
+      <aside class="newsletter-sidebar">
+        <SubscribeForm />
+      </aside>
+    </div>
+  </div>
+</Page>
+
+<style>
+  .newsletter-layout { display: grid; grid-template-columns: 1fr 360px; gap: 3rem; padding: var(--space-xl, 2rem) 0; }
+  @media (max-width: 768px) { .newsletter-layout { grid-template-columns: 1fr; } }
+</style>
