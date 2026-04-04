@@ -1,17 +1,12 @@
 ---
-import { getLang, t, getLocalePath } from '@/i18n/utils';
+import { getLang, t } from '@/i18n/utils';
 import Logo from './Logo.astro';
+import { navLinks, getCounterpart } from '../i18n/nav';
 
 const lang = getLang(Astro.url);
-const altLang = lang === 'en' ? 'es' : 'en';
+const links = navLinks[lang];
+const counterpart = getCounterpart(Astro.url.pathname);
 const pathname = Astro.url.pathname;
-
-const navLinks = [
-  { key: 'nav.home' as const, href: `/${lang}/` },
-  { key: 'nav.ourStory' as const, href: `/${lang}/our-story/` },
-  { key: 'nav.howWeHelp' as const, href: `/${lang}/how-we-help/` },
-  { key: 'nav.scholars' as const, href: `/${lang}/scholars/` },
-];
 
 function isActive(href: string): boolean {
   if (href === `/${lang}/`) {
@@ -29,7 +24,7 @@ function isActive(href: string): boolean {
 
     <nav aria-label="Main navigation">
       <ul class="nav__links">
-        {navLinks.map(({ key, href }) => (
+        {links.map(({ key, href }) => (
           <li>
             <a
               href={href}
@@ -44,14 +39,13 @@ function isActive(href: string): boolean {
     </nav>
 
     <div class="nav__actions">
-      <button
+      <a
+        href={counterpart}
         class="nav__lang"
-        id="langToggle"
-        type="button"
         aria-label={t(lang, 'lang.label')}
       >
-        {t(lang, 'lang.switch')}
-      </button>
+        {lang === 'en' ? 'ES' : 'EN'}
+      </a>
       <button
         class="nav__theme"
         id="themeToggle"
@@ -80,7 +74,7 @@ function isActive(href: string): boolean {
   <div class="nav__mobile" id="mobileMenu" hidden>
     <nav aria-label="Mobile navigation">
       <ul class="nav__mobile-links">
-        {navLinks.map(({ key, href }) => (
+        {links.map(({ key, href }) => (
           <li>
             <a
               href={href}
@@ -103,7 +97,6 @@ function isActive(href: string): boolean {
 
 <script>
   import '../js/theme-toggle';
-  import '../js/lang-toggle';
 
   // Hamburger menu toggle
   document.addEventListener('DOMContentLoaded', () => {
@@ -248,6 +241,7 @@ function isActive(href: string): boolean {
     font-size: 0.75rem;
     letter-spacing: 0.05em;
     padding: 0.375rem 0.625rem;
+    text-decoration: none;
   }
 
   .nav__theme {
