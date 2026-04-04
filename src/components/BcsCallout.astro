@@ -1,0 +1,37 @@
+---
+import { getLang, t } from '@/i18n/utils';
+
+interface Props {
+  variant?: 'prominent' | 'inline';
+}
+
+const { variant = 'inline' } = Astro.props;
+const lang = getLang(Astro.url);
+---
+
+<aside class:list={['bcs-callout', `bcs-callout--${variant}`]} role="note">
+  <p>{t(lang, 'bcs.callout')}</p>
+</aside>
+
+<style>
+  .bcs-callout {
+    line-height: 1.6;
+  }
+
+  .bcs-callout--inline {
+    font-style: italic;
+    color: var(--text-muted);
+    margin: 1rem 0;
+  }
+
+  .bcs-callout--prominent {
+    padding: 1.25rem 1.5rem;
+    border-left: 4px solid var(--red);
+    background: var(--bg-alt);
+    border-radius: 0 var(--radius, 4px) var(--radius, 4px) 0;
+    font-family: var(--font-display);
+    font-size: var(--text-lg, 1.125rem);
+    color: var(--text);
+    margin: 2rem 0;
+  }
+</style>

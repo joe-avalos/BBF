@@ -364,6 +364,9 @@ export const ui = {
     // Motto
     'motto': 'Leave your mark',
 
+    // BCS Callout
+    'bcs.callout': '[PENDING CLIENT COPY — BCS eligibility, donor-facing framing]',
+
     // Meta
     'meta.title': "Building Baja's Future — Scholarships for Baja California Sur",
     'meta.description': "Building Baja's Future (BBF) is a nonprofit organization awarding full college scholarships to deserving students in Baja California Sur, Mexico.",
@@ -732,6 +735,9 @@ export const ui = {
 
     // Motto
     'motto': 'Deja tu huella',
+
+    // BCS Callout
+    'bcs.callout': '[PENDING CLIENT COPY — BCS eligibility, applicant-facing, prominent]',
 
     // Meta
     'meta.title': 'Building Baja\'s Future — Becas para Baja California Sur',
