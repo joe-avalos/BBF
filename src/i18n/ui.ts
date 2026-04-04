@@ -8,7 +8,6 @@ export const ui = {
     'nav.howToApply': 'How to Apply',
     'nav.howToDonate': 'How to Donate',
     'nav.friendsOfBbf': 'Friends of BBF',
-    'nav.blog': 'Blog',
     'nav.donate': 'Donate',
 
     // Hero
@@ -339,17 +338,10 @@ export const ui = {
     'friends.cta.text': "BBF sponsors pay the full tuition of a student and act as mentors. Their participation is extremely significant for BBF scholars.",
     'friends.cta.button': 'Get Involved',
 
-    // Blog page
-    'blog.eyebrow': 'News & Updates',
-    'blog.title': 'Blog',
-    'blog.subtitle': "The latest from Building Baja's Future — scholar stories, program updates, and community news.",
-    'blog.readMore': 'Read more',
-    'blog.back': 'Back to blog',
-
     // Footer
     'footer.entityName': "Building Baja's Future",
-    'footer.address.line1': '378 West Avenue 45',
-    'footer.address.line2': 'Los Angeles, CA 90065',
+    'footer.address.line1': '15139 Hamlin St.',
+    'footer.address.line2': 'Van Nuys, CA 91411',
     'footer.email': 'info@buildingbajasfuture.org',
     'footer.phone': '+52 624 355 4314',
     'footer.legal': 'BBF USA is a 501(c)(3) nonprofit organization. Donations are tax-deductible.',
@@ -382,7 +374,6 @@ export const ui = {
     'nav.howToApply': 'Cómo obtener la beca',
     'nav.howToDonate': 'Cómo apoyar',
     'nav.friendsOfBbf': 'Amigos de BBF',
-    'nav.blog': 'Blog',
     'nav.donate': 'Donar',
 
     // Hero
@@ -418,7 +409,7 @@ export const ui = {
     'programs.scholarships.link': 'Cómo aplicar',
     'programs.scholars.tag': 'Nuestros becarios',
     'programs.scholars.title': 'Historias que construyen futuro',
-    'programs.scholars.text': 'Nuestros becarios provienen de distintos contextos y trayectorias de vida, y sus intereses académicos son tan diversos como sus sueños.',
+    'programs.scholars.text': 'Nuestros becarios provienen de diversos contextos y trayectorias de vida, y sus intereses académicos son tan variados como sus sueños, pero tienen en común su pasión por aprender y salir adelante.',
     'programs.scholars.link': 'Conócelos',
     'programs.sponsorship.tag': 'Patrocinio',
     'programs.sponsorship.title': 'Impulsa el talento joven',
@@ -521,7 +512,7 @@ export const ui = {
     'story.reports.intro': 'Es muy importante para nosotros mostrar los resultados de nuestro arduo trabajo. Nuestros informes de actividades anuales están disponibles para su consulta.',
 
     // How We Help page
-    'help.eyebrow': 'Apoyo integral',
+    'help.eyebrow': 'Atención integral',
     'help.title': 'Cómo ayudamos',
     'help.subtitle': 'BBF es una asociación civil privada dedicada a otorgar becas y apoyo educativo a jóvenes universitarios de escasos recursos. Su enfoque se centra en estudiantes que cursan sus estudios en instituciones de educación superior con reconocimiento oficial según la Ley General de Educación.',
     'help.free': 'Todos los servicios son gratuitos y exclusivos para becarios de BBF.',
@@ -712,13 +703,6 @@ export const ui = {
     'friends.cta.title': 'Sé amigo de BBF',
     'friends.cta.text': 'Los patrocinadores de BBF pagan la matrícula completa de un estudiante y actúan como mentores. Su participación es extremadamente significativa para los becados de BBF.',
     'friends.cta.button': 'Involúcrate',
-
-    // Blog page
-    'blog.eyebrow': 'Noticias y actualizaciones',
-    'blog.title': 'Blog',
-    'blog.subtitle': 'Lo último de Building Baja\'s Future — historias de becarios, actualizaciones de programas y noticias comunitarias.',
-    'blog.readMore': 'Leer más',
-    'blog.back': 'Volver al blog',
 
     // Footer
     'footer.entityName': "Building Baja's Future, A.C.",

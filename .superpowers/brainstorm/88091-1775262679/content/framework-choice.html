@@ -1,0 +1,104 @@
+<h2>Framework Choice</h2>
+<p class="subtitle">Given: static nonprofit site, Google Sheets data source, Mailchimp integration, bilingual with different page sets per language</p>
+
+<div class="options">
+
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Stay with Astro</h3>
+      <p style="margin-bottom: 1rem;">What you already have. Static-first, zero JS by default, content collections, built-in i18n support.</p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>Pros</h4>
+          <ul>
+            <li><strong>Existing work</strong> — layouts, components, theming, and i18n infrastructure are already built</li>
+            <li><strong>Zero JS shipped</strong> — fastest possible page loads, great for BCS internet speeds</li>
+            <li><strong>Content collections</strong> — built-in schema validation for scholar data from Sheets</li>
+            <li><strong>Simple mental model</strong> — each .astro file = one page, no framework abstractions</li>
+            <li><strong>Perfect for static sites</strong> — this is literally what Astro was built for</li>
+            <li><strong>Netlify deploys just work</strong> — already configured</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>Cons</h4>
+          <ul>
+            <li>Astro templating syntax is its own thing (not React/JSX, though it's similar)</li>
+            <li>Smaller ecosystem than React/Next if you need UI libraries</li>
+            <li>If you ever need dynamic features (auth, dashboards), Astro is awkward</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Next.js (React)</h3>
+      <p style="margin-bottom: 1rem;">Full-stack React framework. Static export mode or server-rendered. Huge ecosystem.</p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>Pros</h4>
+          <ul>
+            <li><strong>React skills transfer</strong> — if you know React, everything is familiar</li>
+            <li><strong>Huge ecosystem</strong> — component libraries, tutorials, hiring pool</li>
+            <li><strong>Flexible</strong> — can add dynamic features (API routes, auth) later without switching frameworks</li>
+            <li><strong>Built-in i18n</strong> — mature internationalization support</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>Cons</h4>
+          <ul>
+            <li><strong>Overkill</strong> — ships React runtime (~40-80KB) for a site that doesn't need interactivity</li>
+            <li><strong>Rebuild from scratch</strong> — nothing from the current Astro codebase transfers</li>
+            <li><strong>Complexity tax</strong> — SSR/SSG/ISR modes, App Router vs Pages Router, hydration issues</li>
+            <li><strong>Vercel push</strong> — best experience is on Vercel, Netlify deploys work but less smooth</li>
+            <li>Slower page loads than Astro for a static content site</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Plain HTML + Vite (or 11ty)</h3>
+      <p style="margin-bottom: 1rem;">No framework at all. HTML templates, CSS, and a build tool for bundling. Maximum simplicity.</p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>Pros</h4>
+          <ul>
+            <li><strong>Zero abstraction</strong> — what you write is what ships</li>
+            <li><strong>No framework to learn or maintain</strong></li>
+            <li><strong>Fastest possible builds</strong></li>
+            <li>No dependencies to update or break</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>Cons</h4>
+          <ul>
+            <li><strong>No components</strong> — header/footer changes mean updating every HTML file</li>
+            <li><strong>No content collections</strong> — you'd build your own Sheet→HTML pipeline from scratch</li>
+            <li><strong>i18n is manual</strong> — no framework help for bilingual routing</li>
+            <li><strong>Rebuild everything</strong> — none of the current work transfers</li>
+            <li>More code to maintain long-term, not less</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="section" style="margin-top: 2rem; padding: 1.25rem; border-radius: 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+  <h3 style="margin-bottom: 0.75rem;">💡 The real question</h3>
+  <p style="opacity: 0.8; line-height: 1.7;">
+    This site has <strong>no user authentication, no dynamic data, no forms that write to a database, and no client-side interactivity beyond filtering and toggles</strong>. It's a brochure site with a Google Sheet as a data source.
+    <br><br>
+    The features you need — bilingual routing, content from external data, static pages, component reuse — are <strong>exactly Astro's sweet spot</strong>. Switching to Next.js or React buys you ecosystem familiarity but costs you a full rebuild and ships unnecessary JavaScript to users on potentially slow BCS connections.
+    <br><br>
+    <strong>Recommendation: Stay with Astro.</strong> You already have working infrastructure. The new requirements (Sheets integration, different page sets per language, newsletter page) are additions to what exists, not reasons to start over.
+  </p>
+</div>

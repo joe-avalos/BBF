@@ -1,0 +1,132 @@
+<h2>CMS Options for BBF</h2>
+<p class="subtitle">Who updates what, and how hard should it be?</p>
+
+<div class="section">
+  <p style="margin-bottom: 1.5rem; opacity: 0.8; line-height: 1.7;">
+    The non-technical admin needs to update: <strong>stats/numbers</strong> (yearly), <strong>scholar profiles</strong> (ongoing), and <strong>upload newsletter PDFs</strong> (quarterly). Jose handles everything else.
+  </p>
+</div>
+
+<div class="options">
+
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>No CMS — Google Sheets + Simple Upload</h3>
+      <p style="margin-bottom: 1rem;">Scholars & stats live in a Google Sheet. Client edits the sheet (they already know how). A build hook pulls data on deploy. Newsletter PDFs uploaded via a simple drag-and-drop form.</p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>Pros</h4>
+          <ul>
+            <li>Zero new logins — client uses tools they already know</li>
+            <li>Free forever, no vendor lock-in</li>
+            <li>Site stays 100% static (fast, secure, cheap)</li>
+            <li>Jose: full control via code, no CMS to maintain</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>Cons</h4>
+          <ul>
+            <li>Changes aren't instant — need a rebuild trigger</li>
+            <li>No preview before publish</li>
+            <li>Newsletter upload needs a small backend (or third-party service)</li>
+            <li>Spreadsheet can be accidentally broken by the client</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Headless CMS (Decap / Tina / Keystatic)</h3>
+      <p style="margin-bottom: 1rem;">A lightweight CMS that edits markdown files in your Git repo. Client gets a simple web form with fields for each scholar. Site remains static Astro.</p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>Pros</h4>
+          <ul>
+            <li>Client gets a friendly form UI — no spreadsheet accidents</li>
+            <li>Changes commit to Git automatically (audit trail)</li>
+            <li>Free tier covers BBF's needs (Decap, Keystatic are free)</li>
+            <li>Jose: still edits code directly when needed</li>
+            <li>Can preview changes before publishing</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>Cons</h4>
+          <ul>
+            <li>One more login for the client (GitHub or Netlify Identity)</li>
+            <li>Setup and maintenance overhead for Jose</li>
+            <li>CMS UI can still confuse a non-technical user</li>
+            <li>Vendor dependency (if CMS project dies, need to migrate)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Keep WordPress as Headless CMS</h3>
+      <p style="margin-bottom: 1rem;">Keep the existing WP install purely as a data backend. Astro pulls scholars/stats/newsletters from the WP REST API at build time. Client uses WP admin (or doesn't — you do).</p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>Pros</h4>
+          <ul>
+            <li>Existing subscriber data and content stays in place</li>
+            <li>WP admin is familiar to many people</li>
+            <li>Mature ecosystem — plugins for anything</li>
+            <li>Can extract newsletter subscribers and Friends of BBF data</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>Cons</h4>
+          <ul>
+            <li>Must keep WP hosted and updated (security patches, PHP)</li>
+            <li>WP admin is NOT simple for a zero-tech user — it's overwhelming</li>
+            <li>Hosting cost for a CMS nobody is really using</li>
+            <li>Nobody uses it now — unlikely to start</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="d" onclick="toggleSelect(this)">
+    <div class="letter">D</div>
+    <div class="content">
+      <h3>Hybrid — Sheets for Client + Git for Jose</h3>
+      <p style="margin-bottom: 1rem;">Stats and scholar data in a Google Sheet (client's domain). Jose edits everything else in code. Newsletter PDFs stored in a Google Drive folder that auto-syncs. Best of A without the upload backend problem.</p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>Pros</h4>
+          <ul>
+            <li>Client only uses Google (Sheets + Drive) — truly zero learning curve</li>
+            <li>Jose keeps full code control, no CMS overhead</li>
+            <li>Free, reliable, no hosting needed for the CMS layer</li>
+            <li>Google Sheets has built-in validation (dropdowns, data types)</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>Cons</h4>
+          <ul>
+            <li>Need a build script to pull Sheet data → markdown</li>
+            <li>Still need a deploy trigger (Netlify webhook or manual)</li>
+            <li>Google API setup is a one-time hassle</li>
+            <li>Drive PDFs need a public sharing link or API access</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="section" style="margin-top: 2rem; padding: 1.5rem; border-radius: 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+  <h3 style="margin-bottom: 0.75rem;">💡 Regardless of choice: extract WP data first</h3>
+  <p style="opacity: 0.8; line-height: 1.6;">
+    Before killing WordPress, we should extract: <strong>newsletter subscribers</strong> (emails), <strong>Friends of BBF</strong> list, and any <strong>scholar data</strong> that's in WP. This is a one-time migration task that applies to all options above.
+  </p>
+</div>

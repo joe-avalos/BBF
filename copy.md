@@ -56,12 +56,12 @@
 - Note: EN refers to the US 501(c)(3) entity; ES refers to the Mexican Asociación Civil.
 
 **footer.address.line1** — ENTITY-AWARE
-- EN: "378 West Avenue 45"
+- EN: "15139 Hamlin St."
 - ES: "Camino del Pedernal 160"
 - Note: EN shows the US mailing address; ES shows the Mexico office address.
 
 **footer.address.line2** — ENTITY-AWARE
-- EN: "Los Angeles, CA 90065"
+- EN: "Van Nuys, CA 91411"
 - ES: "Pedregal, Cabo San Lucas, B.C.S. C.P. 23453"
 - Note: EN shows LA, CA; ES shows Cabo San Lucas, BCS.
 
@@ -327,7 +327,7 @@
 
 **programs.scholars.text**
 - EN: "Our scholars come from diverse backgrounds with different academic interests, united by one thing: a passionate desire to learn."
-- ES: "Nuestros becarios provienen de distintos contextos y trayectorias de vida, y sus intereses académicos son tan diversos como sus sueños."
+- ES: "Nuestros becarios provienen de diversos contextos y trayectorias de vida, y sus intereses académicos son tan variados como sus sueños, pero tienen en común su pasión por aprender y salir adelante."
 
 **programs.scholars.link**
 - EN: "Meet them"
@@ -664,7 +664,7 @@
 
 **help.eyebrow**
 - EN: "Comprehensive Support"
-- ES: "Apoyo integral"
+- ES: "Atención integral"
 
 **help.title**
 - EN: "How We Help"
