@@ -40,9 +40,13 @@ const pillar3Programs = [
     subtitle={t(lang, 'help.subtitle')}
   />
 
-  <!-- Intro -->
+  <!-- Donor framing -->
   <section class="section">
     <div class="container">
+      <div class="help-framing">
+        <h2 class="help-framing__title">{t(lang, 'help.en.heading')}</h2>
+        <p class="help-framing__text">{t(lang, 'help.en.subheading')}</p>
+      </div>
       <p class="help-free">{t(lang, 'help.free')}</p>
     </div>
   </section>
@@ -129,6 +133,23 @@ const pillar3Programs = [
   /* ═══════════════════════════════════════════════
      INTRO
      ═══════════════════════════════════════════════ */
+
+  .help-framing {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto var(--space-xl);
+  }
+
+  .help-framing__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: var(--space-md);
+  }
+
+  .help-framing__text {
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
 
   .help-free {
     text-align: center;

@@ -154,6 +154,10 @@ export const ui = {
     'help.title': 'How We Help',
     'help.subtitle': 'BBF is a private civil association dedicated to granting scholarships and educational support to university students from low-income backgrounds. Its focus is on students enrolled in officially recognized institutions of higher education under the General Education Law.',
     'help.free': 'All services are free and exclusive to BBF scholars.',
+    'help.en.heading': '[PENDING CLIENT COPY — what your donations fund]',
+    'help.en.subheading': '[PENDING CLIENT COPY — donor-framed subheading]',
+    'help.es.heading': '[PENDING CLIENT COPY — what you receive as a scholar]',
+    'help.es.subheading': '[PENDING CLIENT COPY — applicant-framed subheading]',
 
     // Pillar headers
     'help.pillar1.eyebrow': 'Pillar 1',
@@ -540,6 +544,10 @@ export const ui = {
     'help.title': 'Cómo ayudamos',
     'help.subtitle': 'BBF es una asociación civil privada dedicada a otorgar becas y apoyo educativo a jóvenes universitarios de escasos recursos. Su enfoque se centra en estudiantes que cursan sus estudios en instituciones de educación superior con reconocimiento oficial según la Ley General de Educación.',
     'help.free': 'Todos los servicios son gratuitos y exclusivos para becarios de BBF.',
+    'help.en.heading': '[PENDING CLIENT COPY — what your donations fund]',
+    'help.en.subheading': '[PENDING CLIENT COPY — donor-framed subheading]',
+    'help.es.heading': '[PENDING CLIENT COPY — what you receive as a scholar]',
+    'help.es.subheading': '[PENDING CLIENT COPY — applicant-framed subheading]',
 
     // Pillar headers
     'help.pillar1.eyebrow': 'Pilar 1',

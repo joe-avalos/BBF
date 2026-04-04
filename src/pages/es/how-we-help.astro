@@ -4,6 +4,7 @@ import { t } from '@/i18n/utils';
 import type { Lang } from '@/i18n/utils';
 import PageHeader from '@/components/PageHeader.astro';
 import CtaStrip from '@/components/CtaStrip.astro';
+import BcsCallout from '@/components/BcsCallout.astro';
 
 const lang: Lang = 'es';
 
@@ -40,9 +41,14 @@ const pillar3Programs = [
     subtitle={t(lang, 'help.subtitle')}
   />
 
-  <!-- Intro -->
+  <!-- Applicant framing -->
   <section class="section">
     <div class="container">
+      <BcsCallout variant="prominent" />
+      <div class="help-framing">
+        <h2 class="help-framing__title">{t(lang, 'help.es.heading')}</h2>
+        <p class="help-framing__text">{t(lang, 'help.es.subheading')}</p>
+      </div>
       <p class="help-free">{t(lang, 'help.free')}</p>
     </div>
   </section>
@@ -113,15 +119,14 @@ const pillar3Programs = [
     </div>
   </section>
 
-  <!-- CTA Strip -->
-  <CtaStrip
-    eyebrow={t(lang, 'help.cta.eyebrow')}
-    title={t(lang, 'help.cta.title')}
-    text={t(lang, 'help.cta.text')}
-    buttonText={t(lang, 'cta.button')}
-    buttonHref="https://www.paypal.com/donate/?hosted_button_id=BUILDINGBAJA"
-    trustText={t(lang, 'cta.trust')}
-  />
+  <!-- Apply CTA -->
+  <section class="apply-cta">
+    <div class="container" style="text-align: center; padding: var(--space-xl) 0;">
+      <h2 class="t-display t-display--sm">{t(lang, 'help.cta.title')}</h2>
+      <p style="color: var(--text-muted); margin: var(--space-md) auto; max-width: 540px;">{t(lang, 'help.cta.text')}</p>
+      <a href="/es/how-to-apply/" class="btn btn--primary">{t(lang, 'nav.howToApply')}</a>
+    </div>
+  </section>
 
 </Page>
 
@@ -129,6 +134,23 @@ const pillar3Programs = [
   /* ═══════════════════════════════════════════════
      INTRO
      ═══════════════════════════════════════════════ */
+
+  .help-framing {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto var(--space-xl);
+  }
+
+  .help-framing__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: var(--space-md);
+  }
+
+  .help-framing__text {
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
 
   .help-free {
     text-align: center;
