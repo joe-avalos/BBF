@@ -37,13 +37,21 @@
 - EN: "Friends of BBF"
 - ES: "Amigos de BBF"
 
-**nav.blog**
-- EN: "Blog"
-- ES: "Blog"
-
 **nav.donate**
 - EN: "Donate"
 - ES: "Donar"
+
+**nav.newsletter**
+- EN: "Newsletter"
+- ES: "Boletín"
+
+**nav.yourImpact**
+- EN: "Your Impact"
+- ES: "Tu Impacto"
+
+**nav.studentResources**
+- EN: "Student Resources"
+- ES: "Recursos para Becarios"
 
 ---
 
@@ -75,7 +83,7 @@
 
 **footer.legal** — ENTITY-AWARE
 - EN: "BBF USA is a 501(c)(3) nonprofit organization. Donations are tax-deductible."
-- ES: "BBF México es una Asociación Civil constituida conforme a las leyes mexicanas."
+- ES: "BBF es una asociación civil mexicana sin fines de lucro, donataria autorizada para recibir donativos deducibles de impuestos."
 - Note: EN states 501(c)(3) tax-deductible status; ES states Asociación Civil status.
 
 **footer.disclaimer**
@@ -129,7 +137,7 @@
 
 **cta.trust** — ENTITY-AWARE
 - EN: "Secure · Tax-deductible · 501(c)(3)"
-- ES: "Seguro · Transparente · Asociación Civil Autorizada"
+- ES: "Confiable · Deducible de impuestos · Donataria autorizada por el SAT"
 - Note: EN references 501(c)(3); ES references Asociación Civil Autorizada.
 
 ---
@@ -152,6 +160,42 @@
 **newsletter.button**
 - EN: "Subscribe"
 - ES: "Suscríbete"
+
+**newsletter.pageTitle**
+- EN: "Newsletter"
+- ES: "Boletín"
+
+**newsletter.latest**
+- EN: "Latest Newsletter"
+- ES: "Último Boletín"
+
+**newsletter.archive**
+- EN: "Previous Newsletters"
+- ES: "Boletines Anteriores"
+
+**newsletter.subscribe.title**
+- EN: "Subscribe"
+- ES: "Suscríbete"
+
+**newsletter.subscribe.text**
+- EN: "Get our quarterly newsletter delivered to your inbox."
+- ES: "Recibe nuestro boletín trimestral en tu correo."
+
+**newsletter.subscribe.email**
+- EN: "Email address"
+- ES: "Correo electrónico"
+
+**newsletter.subscribe.button**
+- EN: "Subscribe"
+- ES: "Suscribirse"
+
+**newsletter.download**
+- EN: "Download PDF"
+- ES: "Descargar PDF"
+
+**newsletter.noNewsletters**
+- EN: "No newsletters available yet. Subscribe to be notified when the first one is published."
+- ES: "Aún no hay boletines disponibles. Suscríbete para recibir una notificación cuando se publique el primero."
 
 ---
 
@@ -266,6 +310,10 @@
 **stats.tuitionSubLabel**
 - EN: "per scholarship"
 - ES: "por beca"
+
+**stats.graduates**
+- EN: "Graduates"
+- ES: "Graduados"
 
 ---
 
@@ -1337,8 +1385,8 @@
 - Note: ES clarifies check goes to BBF USA.
 
 **donate.check.address**
-- EN: "378 West Avenue 45\nLos Angeles, CA 90065"
-- ES: "378 West Avenue 45\nLos Angeles, CA 90065"
+- EN: "15139 Hamlin St.\nVan Nuys, CA 91411. USA."
+- ES: "15139 Hamlin St.\nVan Nuys, CA 91411. USA."
 
 **donate.check.payable**
 - EN: "Make payable to BBF"
@@ -1403,26 +1451,129 @@
 
 ---
 
-## Blog
-> Blog page — code only, not linked in navigation
+## Uncategorized
 
-**blog.eyebrow**
-- EN: "News & Updates"
-- ES: "Noticias y actualizaciones"
+**help.en.heading**
+- EN: "[PENDING CLIENT COPY — what your donations fund]"
+- ES: "[PENDING CLIENT COPY — what your donations fund]"
 
-**blog.title**
-- EN: "Blog"
-- ES: "Blog"
+**help.en.subheading**
+- EN: "[PENDING CLIENT COPY — donor-framed subheading]"
+- ES: "[PENDING CLIENT COPY — donor-framed subheading]"
 
-**blog.subtitle**
-- EN: "The latest from Building Baja's Future — scholar stories, program updates, and community news."
-- ES: "Lo último de Building Baja's Future — historias de becarios, actualizaciones de programas y noticias comunitarias."
+**help.es.heading**
+- EN: "[PENDING CLIENT COPY — what you receive as a scholar]"
+- ES: "[PENDING CLIENT COPY — what you receive as a scholar]"
 
-**blog.readMore**
-- EN: "Read more"
-- ES: "Leer más"
+**help.es.subheading**
+- EN: "[PENDING CLIENT COPY — applicant-framed subheading]"
+- ES: "[PENDING CLIENT COPY — applicant-framed subheading]"
 
-**blog.back**
-- EN: "Back to blog"
-- ES: "Volver al blog"
+**bcs.callout**
+- EN: "[PENDING CLIENT COPY — BCS eligibility, donor-facing framing]"
+- ES: "[PENDING CLIENT COPY — BCS eligibility, applicant-facing, prominent]"
+
+**home.es.intro**
+- EN: "[PENDING CLIENT COPY — brief intro to BBF for applicants]"
+- ES: "[PENDING CLIENT COPY — introducción breve a BBF para aplicantes]"
+
+**home.es.whatIsBbf**
+- EN: "[PENDING CLIENT COPY — what is BBF, asociación civil, scholarships]"
+- ES: "[PENDING CLIENT COPY — qué es BBF, asociación civil, becas]"
+
+**home.es.benefits.tuition**
+- EN: "Tuition"
+- ES: "Colegiatura"
+
+**home.es.benefits.books**
+- EN: "Books & Supplies"
+- ES: "Libros y Materiales"
+
+**home.es.benefits.mentorship**
+- EN: "Mentorship"
+- ES: "Mentoría"
+
+**home.es.benefits.support**
+- EN: "Comprehensive Support"
+- ES: "Apoyo Integral"
+
+**home.es.steps.title**
+- EN: "How to Apply"
+- ES: "Cómo Obtener la Beca"
+
+**home.es.steps.step1**
+- EN: "Review Requirements"
+- ES: "Revisa los Requisitos"
+
+**home.es.steps.step2**
+- EN: "Submit Application"
+- ES: "Envía tu Solicitud"
+
+**home.es.steps.step3**
+- EN: "Interview"
+- ES: "Entrevista"
+
+**home.es.applyCtaText**
+- EN: "[PENDING CLIENT COPY — apply CTA]"
+- ES: "[PENDING CLIENT COPY — texto CTA para aplicar]"
+
+**impact.title**
+- EN: "Your Impact"
+- ES: "Tu Impacto"
+
+**impact.subtitle**
+- EN: "[PENDING CLIENT COPY — transparency, where your money goes]"
+- ES: "[PENDING CLIENT COPY]"
+
+**impact.section1.title**
+- EN: "[PENDING CLIENT COPY]"
+- ES: "[PENDING CLIENT COPY]"
+
+**impact.section1.text**
+- EN: "[PENDING CLIENT COPY]"
+- ES: "[PENDING CLIENT COPY]"
+
+**impact.section2.title**
+- EN: "[PENDING CLIENT COPY]"
+- ES: "[PENDING CLIENT COPY]"
+
+**impact.section2.text**
+- EN: "[PENDING CLIENT COPY]"
+- ES: "[PENDING CLIENT COPY]"
+
+**impact.ctaText**
+- EN: "[PENDING CLIENT COPY — donate CTA]"
+- ES: "[PENDING CLIENT COPY]"
+
+**resources.title**
+- EN: "Student Resources"
+- ES: "Recursos para Becarios"
+
+**resources.subtitle**
+- EN: "[PENDING CLIENT COPY]"
+- ES: "[PENDING CLIENT COPY — what scholars need to know]"
+
+**resources.obligations.title**
+- EN: "[PENDING CLIENT COPY — scholar obligations]"
+- ES: "[PENDING CLIENT COPY — scholar obligations]"
+
+**resources.obligations.text**
+- EN: "[PENDING CLIENT COPY]"
+- ES: "[PENDING CLIENT COPY]"
+
+**resources.support.title**
+- EN: "[PENDING CLIENT COPY — support services]"
+- ES: "[PENDING CLIENT COPY — support services]"
+
+**resources.support.text**
+- EN: "[PENDING CLIENT COPY]"
+- ES: "[PENDING CLIENT COPY]"
+
+**resources.faq.title**
+- EN: "[PENDING CLIENT COPY — FAQ]"
+- ES: "[PENDING CLIENT COPY — FAQ]"
+
+**resources.faq.text**
+- EN: "[PENDING CLIENT COPY]"
+- ES: "[PENDING CLIENT COPY]"
 
