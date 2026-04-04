@@ -1,8 +1,12 @@
 ---
 import { getLang, t } from '@/i18n/utils';
 import Logo from './Logo.astro';
+import { allPages } from '../i18n/nav';
 
 const lang = getLang(Astro.url);
+const otherLang = lang === 'en' ? 'es' : 'en';
+const currentLangPages = allPages[lang];
+const otherLangPages = allPages[otherLang];
 ---
 
 <footer class="footer" role="contentinfo">
@@ -18,24 +22,23 @@ const lang = getLang(Astro.url);
         <p class="footer__legal-note">{t(lang, 'footer.legal')}</p>
       </div>
 
-      <!-- Column 2: Organization -->
+      <!-- Column 2: Current language pages -->
       <div class="footer__col">
-        <h3 class="footer__heading">{t(lang, 'footer.organization')}</h3>
+        <h3 class="footer__heading">{lang === 'en' ? 'Pages' : 'Páginas'}</h3>
         <ul class="footer__links">
-          <li><a href={`/${lang}/our-story/`} class="footer__link">{t(lang, 'nav.ourStory')}</a></li>
-          <li><a href={`/${lang}/how-we-help/`} class="footer__link">{t(lang, 'nav.howWeHelp')}</a></li>
-          <li><a href={`/${lang}/scholars/`} class="footer__link">{t(lang, 'nav.scholars')}</a></li>
-          <li><a href={`/${lang}/friends-of-bbf/`} class="footer__link">{t(lang, 'nav.friendsOfBbf')}</a></li>
+          {currentLangPages.map(page => (
+            <li><a href={page.href} class="footer__link">{t(lang, page.key as any)}</a></li>
+          ))}
         </ul>
       </div>
 
-      <!-- Column 3: Get Involved -->
+      <!-- Column 3: Other language pages -->
       <div class="footer__col">
-        <h3 class="footer__heading">{t(lang, 'footer.getInvolved')}</h3>
+        <h3 class="footer__heading">{lang === 'en' ? 'En Español' : 'In English'}</h3>
         <ul class="footer__links">
-          <li><a href={`/${lang}/how-to-donate/`} class="footer__link">{t(lang, 'nav.howToDonate')}</a></li>
-          <li><a href={`/${lang}/how-to-donate/`} class="footer__link">{t(lang, 'footer.sponsorScholar')}</a></li>
-          <li><a href={`/${lang}/how-to-apply/`} class="footer__link">{t(lang, 'nav.howToApply')}</a></li>
+          {otherLangPages.map(page => (
+            <li><a href={page.href} class="footer__link">{t(otherLang, page.key as any)}</a></li>
+          ))}
         </ul>
       </div>
 
