@@ -50,24 +50,12 @@ const lang: Lang = 'en';
   </section>
 
   <!-- Stats -->
-  <section class="section">
+  <section class="section stats-section">
     <div class="container">
       <div class="stats">
-        <StatCounter
-          number={t(lang, 'stats.scholarsCount')}
-          label={t(lang, 'stats.scholars')}
-          subLabel={t(lang, 'stats.scholarsSubLabel')}
-        />
-        <StatCounter
-          number={t(lang, 'stats.yearsCount')}
-          label={t(lang, 'stats.years')}
-          subLabel={t(lang, 'stats.yearsSubLabel')}
-        />
-        <StatCounter
-          number={t(lang, 'stats.tuitionCount')}
-          label={t(lang, 'stats.tuition')}
-          subLabel={t(lang, 'stats.tuitionSubLabel')}
-        />
+        <StatCounter target={650} label={t(lang, 'stats.scholars')} suffix="+" />
+        <StatCounter target={20} label={t(lang, 'stats.years')} />
+        <StatCounter target={200} label={t(lang, 'stats.graduates')} />
       </div>
     </div>
   </section>
@@ -161,6 +149,8 @@ const lang: Lang = 'en';
       <Newsletter lang={lang} />
     </div>
   </section>
+
+  <script src="../../js/stat-counter.ts"></script>
 </Page>
 
 <style>

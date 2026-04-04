@@ -30,6 +30,7 @@ export const ui = {
     'stats.scholarsSubLabel': 'and counting',
     'stats.yearsSubLabel': 'since 2006',
     'stats.tuitionSubLabel': 'per scholarship',
+    'stats.graduates': 'Graduates',
 
     // Mission
     'mission.eyebrow': 'Our Mission',
@@ -402,6 +403,7 @@ export const ui = {
     'stats.scholarsSubLabel': 'y contando',
     'stats.yearsSubLabel': 'desde 2006',
     'stats.tuitionSubLabel': 'por beca',
+    'stats.graduates': 'Graduados',
 
     // Mission
     'mission.eyebrow': 'Nuestra misión',
