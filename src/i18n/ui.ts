@@ -445,7 +445,7 @@ export const ui = {
     'cta.title': 'Cada aportación es una inversión en un mejor Baja California Sur.',
     'cta.text': 'Tu donación cubre matrícula, libros, mentoría y habilidades de vida para un estudiante que sueña con una educación universitaria.',
     'cta.button': 'Dona vía PayPal',
-    'cta.trust': 'Seguro · Transparente · Asociación Civil Autorizada',
+    'cta.trust': 'Confiable · Deducible de impuestos · Donataria autorizada por el SAT',
 
     // Impact Quote
     'quote.text': 'La mano que conforma el logo de BBF evoca nuestras raíces y la herencia cultural de Baja California Sur, inspirada en las pinturas rupestres que forman parte de la historia de la región.',
@@ -734,7 +734,7 @@ export const ui = {
     'footer.address.line2': 'Pedregal, Cabo San Lucas, B.C.S. C.P. 23453',
     'footer.email': 'info@buildingbajasfuture.org',
     'footer.phone': '+52 624 355 4314',
-    'footer.legal': 'BBF México es una Asociación Civil constituida conforme a las leyes mexicanas.',
+    'footer.legal': 'BBF es una asociación civil mexicana sin fines de lucro, donataria autorizada para recibir donativos deducibles de impuestos.',
     'footer.disclaimer': 'Building Baja\'s Future opera a través de organizaciones independientes en México y Estados Unidos, cada una regida por las leyes de su respectivo país.',
     'footer.organization': 'Organización',
     'footer.getInvolved': 'Participa',

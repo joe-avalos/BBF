@@ -54,9 +54,9 @@ function isActive(href: string): boolean {
       >
         <!-- Icon set by theme-toggle.ts -->
       </button>
-      <a href={`/${lang}/how-to-donate/`} class="btn btn--donate-sm">
+      <button class="btn btn--donate-sm" data-donate type="button">
         {t(lang, 'nav.donate')}
-      </a>
+      </button>
     </div>
 
     <button
@@ -86,9 +86,9 @@ function isActive(href: string): boolean {
           </li>
         ))}
         <li>
-          <a href={`/${lang}/how-to-donate/`} class="btn btn--donate nav__mobile-donate">
+          <button class="btn btn--donate nav__mobile-donate" data-donate type="button">
             {t(lang, 'nav.donate')}
-          </a>
+          </button>
         </li>
       </ul>
     </nav>
@@ -97,9 +97,11 @@ function isActive(href: string): boolean {
 
 <script>
   import '../js/theme-toggle';
+  import { initDonateButtons } from '../js/paypal';
 
-  // Hamburger menu toggle
+  // Hamburger menu toggle + donate buttons
   document.addEventListener('DOMContentLoaded', () => {
+    initDonateButtons();
     const toggle = document.getElementById('menuToggle');
     const menu = document.getElementById('mobileMenu');
     if (!toggle || !menu) return;

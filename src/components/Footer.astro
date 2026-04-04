@@ -7,6 +7,10 @@ const lang = getLang(Astro.url);
 const otherLang = lang === 'en' ? 'es' : 'en';
 const currentLangPages = allPages[lang];
 const otherLangPages = allPages[otherLang];
+
+// TODO: Revisit with client — Jacinto questioned whether to publish the dual-entity
+// disclaimer due to SAT concerns. Set to false to hide it.
+const showDisclaimer = true;
 ---
 
 <footer class="footer" role="contentinfo">
@@ -59,7 +63,7 @@ const otherLangPages = allPages[otherLang];
 
     <div class="footer__bottom">
       <p class="footer__copy">{t(lang, 'footer.copy')}</p>
-      <p class="footer__disclaimer">{t(lang, 'footer.disclaimer')}</p>
+      {showDisclaimer && <p class="footer__disclaimer">{t(lang, 'footer.disclaimer')}</p>}
     </div>
   </div>
 </footer>

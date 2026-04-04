@@ -5,6 +5,22 @@ export interface NavItem {
 
 export const navLinks: Record<'en' | 'es', NavItem[]> = {
   en: [
+    { key: 'nav.ourStory', href: '/en/our-story/' },
+    { key: 'nav.howWeHelp', href: '/en/how-we-help/' },
+    { key: 'nav.scholars', href: '/en/scholars/' },
+    { key: 'nav.yourImpact', href: '/en/your-impact/' },
+  ],
+  es: [
+    { key: 'nav.ourStory', href: '/es/our-story/' },
+    { key: 'nav.howWeHelp', href: '/es/how-we-help/' },
+    { key: 'nav.scholars', href: '/es/scholars/' },
+    { key: 'nav.howToApply', href: '/es/how-to-apply/' },
+  ],
+};
+
+/** All pages across both languages, for the footer sitemap */
+export const allPages: Record<'en' | 'es', NavItem[]> = {
+  en: [
     { key: 'nav.home', href: '/en/' },
     { key: 'nav.ourStory', href: '/en/our-story/' },
     { key: 'nav.howWeHelp', href: '/en/how-we-help/' },
@@ -13,6 +29,8 @@ export const navLinks: Record<'en' | 'es', NavItem[]> = {
     { key: 'nav.howToDonate', href: '/en/how-to-donate/' },
     { key: 'nav.friendsOfBbf', href: '/en/friends-of-bbf/' },
     { key: 'nav.newsletter', href: '/en/newsletter/' },
+    { key: 'nav.howToApply', href: '/en/how-to-apply/' },
+    { key: 'nav.studentResources', href: '/en/student-resources/' },
   ],
   es: [
     { key: 'nav.home', href: '/es/' },
@@ -22,18 +40,6 @@ export const navLinks: Record<'en' | 'es', NavItem[]> = {
     { key: 'nav.howToApply', href: '/es/how-to-apply/' },
     { key: 'nav.studentResources', href: '/es/student-resources/' },
     { key: 'nav.newsletter', href: '/es/newsletter/' },
-  ],
-};
-
-/** All pages across both languages, for the footer sitemap */
-export const allPages: Record<'en' | 'es', NavItem[]> = {
-  en: [
-    ...navLinks.en,
-    { key: 'nav.howToApply', href: '/en/how-to-apply/' },
-    { key: 'nav.studentResources', href: '/en/student-resources/' },
-  ],
-  es: [
-    ...navLinks.es,
     { key: 'nav.howToDonate', href: '/es/how-to-donate/' },
     { key: 'nav.friendsOfBbf', href: '/es/friends-of-bbf/' },
     { key: 'nav.yourImpact', href: '/es/your-impact/' },
